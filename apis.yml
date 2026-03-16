@@ -1,31 +1,44 @@
 aid: metro-transit
 name: Metro Transit
 description: >-
-  API for creating Metro Transit real-time departure information display (beta,
-  subject to change) 
+  Metro Transit provides a real-time departure information API for the
+  Minneapolis-Saint Paul metropolitan transit system. The API supports
+  creating transit departure displays and accessing real-time bus and train
+  arrival data.
 type: Index
-position: Consumer
-access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
-created: '2025-05-02'
-modified: '2025-05-02'
+  - Transit
+  - Public Transportation
+  - Real-time
+  - Minneapolis
+  - Minnesota
 url: >-
   https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/apis.yml
+created: '2025-05-02'
+modified: '2026-03-16'
 specificationVersion: '0.19'
 apis:
-  - aid: metro-transit:metro-transit
-    name: Metro Transit
+  - aid: metro-transit:metro-transit-api
+    name: Metro Transit NexTrip API
     description: >-
-      API for creating Metro Transit real-time departure information display
-      (beta, subject to change) 
+      The Metro Transit API provides real-time departure information for
+      creating transit departure displays. It offers endpoints for routes,
+      stops, and real-time departure data for the Twin Cities metro area.
     humanURL: https://svc.metrotransit.org/
+    baseURL: https://svc.metrotransit.org/nextrip
     tags:
-      - API
+      - Transit
+      - Real-time
+      - Departures
     properties:
       - type: Documentation
         url: https://svc.metrotransit.org/
+common:
+  - type: Portal
+    url: https://www.metrotransit.org/developer-resources
+  - type: Website
+    url: https://www.metrotransit.org/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
