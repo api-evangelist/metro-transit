@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Transit
-  - Public Transportation
-  - Real-time
   - Minneapolis
   - Minnesota
+  - Public Transportation
+  - Real-Time
+  - Transit
 url: >-
   https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/apis.yml
 created: '2025-05-02'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://svc.metrotransit.org/
     baseURL: https://svc.metrotransit.org/nextrip
     tags:
-      - Transit
-      - Real-time
       - Departures
+      - Real-Time
+      - Transit
     properties:
       - type: Documentation
         url: https://svc.metrotransit.org/
