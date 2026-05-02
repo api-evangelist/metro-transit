@@ -1,0 +1,617 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Schedule API",
+    "description": "API for getting Metro Transit planned schedule information.",
+    "version": "1"
+  },
+  "paths": {
+    "/schedule/routedetails/{route_url_param}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "route_url_param",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RouteDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/schedule/routes": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RouteListItem"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/schedule/stoplist/{route_id}/{schedule_number}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "route_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schedule_number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StopListItem"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/schedule/stops/{route_id}/{schedule_number}/{board_stop}/{exit_stop}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "route_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schedule_number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "board_stop",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "exit_stop",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StopSchedule"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/schedule/timetable/{route_id}/{schedule_number}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "route_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schedule_number",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Timetable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Footnote": {
+        "type": "object",
+        "properties": {
+          "comment_tag": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_text": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "RouteDetails": {
+        "type": "object",
+        "properties": {
+          "route_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "agency_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "agency_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "pick_change": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_short_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_long_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_desc": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "route_type_name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "route_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_color": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_text_color": {
+            "type": "string",
+            "nullable": true
+          },
+          "provider_contact": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "schedules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ScheduleType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouteListItem": {
+        "type": "object",
+        "properties": {
+          "route_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_short_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "agency_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "route_label": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_url_param": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScheduleType": {
+        "type": "object",
+        "properties": {
+          "schedule_type_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "view_order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "booking": {
+            "type": "string",
+            "nullable": true
+          },
+          "timetables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimetableDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StopBoardExit": {
+        "type": "object",
+        "properties": {
+          "route_label": {
+            "type": "string",
+            "nullable": true
+          },
+          "trip_comment": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "board_time": {
+            "type": "string",
+            "nullable": true
+          },
+          "board_comment": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "exit_time": {
+            "type": "string",
+            "nullable": true
+          },
+          "exit_comment": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StopListItem": {
+        "type": "object",
+        "properties": {
+          "stop_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "stop_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "timepoint": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StopSchedule": {
+        "type": "object",
+        "properties": {
+          "departures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StopBoardExit"
+            },
+            "nullable": true
+          },
+          "footnotes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Footnote"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StopTime": {
+        "type": "object",
+        "properties": {
+          "departure_time": {
+            "type": "string",
+            "nullable": true
+          },
+          "place_sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment_tag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Timepoint": {
+        "type": "object",
+        "properties": {
+          "timepoint_label": {
+            "type": "string",
+            "nullable": true
+          },
+          "place_sequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "map_reference": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "downtown_zone": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Timetable": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "timepoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Timepoint"
+            },
+            "nullable": true
+          },
+          "trips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trip"
+            },
+            "nullable": true
+          },
+          "footnotes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Footnote"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TimetableDetail": {
+        "type": "object",
+        "properties": {
+          "schedule_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "type": "string",
+            "nullable": true
+          },
+          "direction_id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Trip": {
+        "type": "object",
+        "properties": {
+          "route_label": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment_tag": {
+            "type": "string",
+            "nullable": true
+          },
+          "stop_times": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StopTime"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Schedule"
+    }
+  ]
+}
