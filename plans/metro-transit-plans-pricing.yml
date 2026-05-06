@@ -4,175 +4,93 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Metro Transit
 providerId: metro-transit
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Minneapolis
   - Minnesota
   - Public Transportation
   - Real-Time
   - Transit
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Metro Transit (the public-transit operator for the Twin Cities, MN, governed by the
+  Metropolitan Council) publishes its real-time vehicle, schedule, alert, and trip-planner data as
+  free open data. Static schedules are published as GTFS zip files; real-time vehicle positions, trip
+  updates, and service alerts are published as GTFS-realtime protobuf feeds refreshed every 5 seconds.
+  A REST API (NexTrip / schedule / alerts / trip planner) is also documented at svc.metrotransit.org.
+  There is no API key, no usage cap, and no commercial tier — the data is offered to developers under
+  open-data terms with attribution.
+sources:
+  - https://svc.metrotransit.org/
+  - https://svc.metrotransit.org/swagger
+  - https://www.metrotransit.org/developers
 plans:
-  - id: metro-transit-free
-    name: Free
+  - id: metro-transit-open-data
+    name: Open Data
     type: freemium
-    description: Free entry tier for the Metro Transit API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Free, open access to Metro Transit's GTFS, GTFS-realtime, and REST APIs. No registration,
+      no API key, and no published usage cap. Consumers should follow standard open-data etiquette
+      (use Last-Modified / ETag, cache appropriately, attribute the source).
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Metro Transit NexTrip API
-      - name: Metro Transit Service Alerts API
-      - name: Metro Transit Trip Planner API
-      - name: Metro Transit Schedule API
-  - id: metro-transit-pro
-    name: Professional
-    type: paid
-    description: Production tier for Metro Transit. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: GTFS Static Schedule
+        description: Weekly GTFS zip download (current and next-week schedules) covering routes, stops,
+          trips, and timetables.
+        name: gtfs_static
+        type: flat
+        metric: download
         limit: -1
-        timeFrame: month
-        geo: global
+        timeFrame: usage
+        geo: US
         domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
-        unit: 1000
-        price: TBD
+          - https://svc.metrotransit.org/mtgtfs/gtfs.zip
+          - https://svc.metrotransit.org/mtgtfs/next/gtfs.zip
+          - https://svc.metrotransit.org/mtgtfs/gtfs-flex.zip
+        unit: 1
+        price: '0.00'
         userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Metro Transit NexTrip API
-      - name: Metro Transit Service Alerts API
-      - name: Metro Transit Trip Planner API
-      - name: Metro Transit Schedule API
-  - id: metro-transit-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Metro Transit. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: GTFS-realtime Feeds
+        description: Trip updates, vehicle positions, and service alerts as protobuf feeds, refreshed
+          every 5 seconds.
+        name: gtfs_realtime
+        type: flat
+        metric: poll
         limit: -1
-        timeFrame: month
-        geo: configurable
+        timeFrame: second
+        geo: US
         domains:
-          - https://svc.metrotransit.org/nextripv2
-          - https://svc.metrotransit.org/alerts
-          - https://svc.metrotransit.org/tripplanner
-          - https://svc.metrotransit.org/schedule
+          - https://svc.metrotransit.org/mtgtfs/tripupdates.pb
+          - https://svc.metrotransit.org/mtgtfs/vehiclepositions.pb
+          - https://svc.metrotransit.org/mtgtfs/alerts.pb
         unit: 1
-        price: custom
+        price: '0.00'
         userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
+      - label: NexTrip / REST API
+        description: REST endpoints for next-departure (NexTrip), schedules, service alerts, and trip
+          planning, documented via Swagger.
+        name: rest_api
+        type: flat
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: US
         domains:
           - https://svc.metrotransit.org/nextripv2
           - https://svc.metrotransit.org/alerts
           - https://svc.metrotransit.org/tripplanner
           - https://svc.metrotransit.org/schedule
         unit: 1
-        price: custom
+        price: '0.00'
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Metro Transit NexTrip API
-      - name: Metro Transit Service Alerts API
-      - name: Metro Transit Trip Planner API
-      - name: Metro Transit Schedule API
+      - name: GTFS Static Schedule (current + next week)
+      - name: GTFS-realtime Trip Updates
+      - name: GTFS-realtime Vehicle Positions
+      - name: GTFS-realtime Service Alerts
+      - name: NexTrip Real-Time Departures
+      - name: Service Alerts API
+      - name: Trip Planner API
+      - name: Schedule API
+      - name: Swagger / OpenAPI Documentation
+      - name: Historical GTFS Archive (back to 2020-11-28)
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

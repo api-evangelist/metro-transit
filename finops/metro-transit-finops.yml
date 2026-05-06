@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,10 +9,11 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Metro Transit
 providerId: metro-transit
-publisherName: Metro Transit
-serviceCategory: API
+publisherName: Metropolitan Council (Metro Transit)
+serviceCategory: Public Transit Open Data
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Minneapolis
   - Minnesota
@@ -19,98 +21,88 @@ tags:
   - Real-Time
   - Transit
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Metro Transit API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps shape for Metro Transit: a free, open-data API surface (GTFS, GTFS-realtime,
+  NexTrip / REST). There is no provider-side cost to the API consumer; FinOps focus shifts to the
+  consumer-side compute / egress / storage cost of polling and serving the public data, plus the
+  Metropolitan Council''s own publishing cost (which is not invoiced to consumers).'
+sources:
+  - https://svc.metrotransit.org/
+  - https://www.metrotransit.org/developers
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: There is no Metro Transit invoice to track. Instead, monitor consumer-side metrics —
+      poll rate per feed, bytes downloaded, cache hit rate — to understand the cost the public data
+      surface generates inside your own infrastructure.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Allocate consumer-side cost (egress, compute, storage of GTFS archive) by the application
+      or product feature consuming the data (commuter app, signage, internal analytics, ML training).
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Cache GTFS-realtime feeds at a single edge / proxy and fan out to clients (instead of
+      having each client poll svc.metrotransit.org directly). Use Last-Modified for the static GTFS zip
+      to skip re-downloads. Match poll cadence to the 5-second refresh interval — polling faster is
+      pure waste.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
+    description: Designate a data-feed owner inside the consuming organization who tracks polling
+      behavior, ensures attribution, and responds promptly if Metro Transit reports excessive load.
 domains:
   - name: Understand Usage and Cost
     capabilities:
       - Data Ingestion
-      - Allocation
       - Reporting and Analytics
-      - Anomaly Management
   - name: Quantify Business Value
     capabilities:
       - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
       - Unit Economics
   - name: Optimize Usage and Cost
     capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
       - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
+      - Architecting for Cloud
   - name: Manage the FinOps Practice
     capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
       - Onboarding Workloads
-      - Intersecting Disciplines
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
-  billingCurrency: USD
-  chargeCategories:
-    - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
+  pricingCategory: Free / Open Data
+  billingFrequency: N/A
+  billingCurrency: N/A
+  chargeCategories: []
 focusColumns:
-  ServiceName: Metro Transit
-  ServiceCategory: Developer Tools / API
+  ServiceName: Metro Transit Open Data API
+  ServiceCategory: Public Transit Open Data
   ProviderName: Metro Transit
-  PublisherName: Metro Transit
-  InvoiceIssuerName: Metro Transit
-  PricingCategory: Usage-Based
-  PricingUnit: request
-  BillingCurrency: USD
-  ChargeCategory: Usage
+  PublisherName: Metropolitan Council
+  InvoiceIssuerName: N/A (free / open data)
+  BillingCurrency: N/A
+  ChargeCategory: N/A
 meters:
-  - name: api_requests
-    description: Count of billable API requests
+  - name: realtime_polls
+    description: Number of polls against GTFS-realtime feeds (consumer-side).
     unit: request
     aggregation: sum
     dimensions:
-      - api
+      - feed
+      - consumer_app
+  - name: gtfs_downloads
+    description: GTFS static zip downloads (current + next-week + flex).
+    unit: download
+    aggregation: sum
+    dimensions:
+      - feed
+      - consumer_app
+  - name: rest_requests
+    description: REST API requests (NexTrip, alerts, trip planner, schedule).
+    unit: request
+    aggregation: sum
+    dimensions:
       - endpoint
-      - tier
-      - region
-      - consumer
+      - consumer_app
   - name: data_egress
-    description: Bytes returned over the network in API responses
+    description: Bytes downloaded from svc.metrotransit.org (consumer-side accounting).
     unit: GB
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+      - feed
+      - consumer_app
 apis:
   - name: Metro Transit NexTrip API
     baseURL: https://svc.metrotransit.org/nextripv2
@@ -145,12 +137,12 @@ apis:
     serviceName: Metro Transit Schedule API
     serviceCategory: API
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+  - name: Internal Cost per Public-Data Poll
+    metric: consumer_infra_cost / realtime_polls
+    target: minimize via shared edge cache
+  - name: Cache Hit Rate
+    metric: cache_hits / (cache_hits + origin_polls)
+    target: '> 0.95'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
