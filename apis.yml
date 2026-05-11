@@ -97,6 +97,10 @@ common:
     url: https://svc.metrotransit.org/swagger/index.html
   - type: Website
     url: https://www.metrotransit.org/
+  - type: Integrations
+    url: https://www.metrotransit.org/integrations
+integrations:
+  - name: metro transit on X
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
