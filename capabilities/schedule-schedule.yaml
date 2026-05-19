@@ -1,0 +1,261 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Schedule API — Schedule
+  description: 'Schedule API — Schedule. 5 operations. Lead operation: Schedule. Self-contained Naftiko capability covering
+    one Metro Transit business surface.'
+  tags:
+  - Metro Transit
+  - Schedule
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    METRO_TRANSIT_API_KEY: METRO_TRANSIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: schedule-schedule
+    baseUri: ''
+    description: Schedule API — Schedule business capability. Self-contained, no shared references.
+    resources:
+    - name: schedule-routedetails-route_url_param
+      path: /schedule/routedetails/{route_url_param}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_url_param
+          in: path
+          type: string
+          required: true
+    - name: schedule-routes
+      path: /schedule/routes
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: schedule-stoplist-route_id-schedule_number
+      path: /schedule/stoplist/{route_id}/{schedule_number}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+        - name: schedule_number
+          in: path
+          type: integer
+          required: true
+    - name: schedule-stops-route_id-schedule_number-board_stop-exit_stop
+      path: /schedule/stops/{route_id}/{schedule_number}/{board_stop}/{exit_stop}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+        - name: schedule_number
+          in: path
+          type: integer
+          required: true
+        - name: board_stop
+          in: path
+          type: integer
+          required: true
+        - name: exit_stop
+          in: path
+          type: integer
+          required: true
+    - name: schedule-timetable-route_id-schedule_number
+      path: /schedule/timetable/{route_id}/{schedule_number}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+        - name: schedule_number
+          in: path
+          type: integer
+          required: true
+  exposes:
+  - type: rest
+    namespace: schedule-schedule-rest
+    port: 8080
+    description: REST adapter for Schedule API — Schedule. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/schedule/routedetails/{route-url-param}
+      name: schedule-routedetails-route-url-param
+      description: REST surface for schedule-routedetails-route_url_param.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: schedule-schedule.get
+        with:
+          route_url_param: rest.route_url_param
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule/routes
+      name: schedule-routes
+      description: REST surface for schedule-routes.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: schedule-schedule.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule/stoplist/{route-id}/{schedule-number}
+      name: schedule-stoplist-route-id-schedule-number
+      description: REST surface for schedule-stoplist-route_id-schedule_number.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: schedule-schedule.get
+        with:
+          route_id: rest.route_id
+          schedule_number: rest.schedule_number
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule/stops/{route-id}/{schedule-number}/{board-stop}/{exit-stop}
+      name: schedule-stops-route-id-schedule-number-board-stop-exit-stop
+      description: REST surface for schedule-stops-route_id-schedule_number-board_stop-exit_stop.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: schedule-schedule.get
+        with:
+          route_id: rest.route_id
+          schedule_number: rest.schedule_number
+          board_stop: rest.board_stop
+          exit_stop: rest.exit_stop
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/schedule/timetable/{route-id}/{schedule-number}
+      name: schedule-timetable-route-id-schedule-number
+      description: REST surface for schedule-timetable-route_id-schedule_number.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: schedule-schedule.get
+        with:
+          route_id: rest.route_id
+          schedule_number: rest.schedule_number
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: schedule-schedule-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Schedule API — Schedule. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: schedule-schedule.get
+      with:
+        route_url_param: tools.route_url_param
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-2
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: schedule-schedule.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-3
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: schedule-schedule.get
+      with:
+        route_id: tools.route_id
+        schedule_number: tools.schedule_number
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-4
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: schedule-schedule.get
+      with:
+        route_id: tools.route_id
+        schedule_number: tools.schedule_number
+        board_stop: tools.board_stop
+        exit_stop: tools.exit_stop
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-5
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: schedule-schedule.get
+      with:
+        route_id: tools.route_id
+        schedule_number: tools.schedule_number
+      outputParameters:
+      - type: object
+        mapping: $.

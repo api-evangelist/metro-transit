@@ -1,0 +1,363 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NexTrip API — NexTrip
+  description: 'NexTrip API — NexTrip. 8 operations. Lead operation: NexTrip. Self-contained Naftiko capability covering one
+    Metro Transit business surface.'
+  tags:
+  - Metro Transit
+  - NexTrip
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    METRO_TRANSIT_API_KEY: METRO_TRANSIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: nextrip-nextrip
+    baseUri: ''
+    description: NexTrip API — NexTrip business capability. Self-contained, no shared references.
+    resources:
+    - name: nextrip-agencies
+      path: /nextrip/agencies
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: nextrip-directions-route_id
+      path: /nextrip/directions/{route_id}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+    - name: nextrip-routes
+      path: /nextrip/routes
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: nextrip-stopid-street
+      path: /nextrip/stopid/{street}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: street
+          in: path
+          type: string
+          required: true
+    - name: nextrip-stops-route_id-direction_id
+      path: /nextrip/stops/{route_id}/{direction_id}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+        - name: direction_id
+          in: path
+          type: integer
+          required: true
+    - name: nextrip-vehicles-route_id
+      path: /nextrip/vehicles/{route_id}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+    - name: nextrip-route_id-direction_id-place_code
+      path: /nextrip/{route_id}/{direction_id}/{place_code}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: route_id
+          in: path
+          type: string
+          required: true
+        - name: direction_id
+          in: path
+          type: integer
+          required: true
+        - name: place_code
+          in: path
+          type: string
+          required: true
+    - name: nextrip-stop_id
+      path: /nextrip/{stop_id}
+      operations:
+      - name: get
+        method: GET
+        description: ''
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: stop_id
+          in: path
+          type: integer
+          required: true
+  exposes:
+  - type: rest
+    namespace: nextrip-nextrip-rest
+    port: 8080
+    description: REST adapter for NexTrip API — NexTrip. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/nextrip/agencies
+      name: nextrip-agencies
+      description: REST surface for nextrip-agencies.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/directions/{route-id}
+      name: nextrip-directions-route-id
+      description: REST surface for nextrip-directions-route_id.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          route_id: rest.route_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/routes
+      name: nextrip-routes
+      description: REST surface for nextrip-routes.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/stopid/{street}
+      name: nextrip-stopid-street
+      description: REST surface for nextrip-stopid-street.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          street: rest.street
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/stops/{route-id}/{direction-id}
+      name: nextrip-stops-route-id-direction-id
+      description: REST surface for nextrip-stops-route_id-direction_id.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          route_id: rest.route_id
+          direction_id: rest.direction_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/vehicles/{route-id}
+      name: nextrip-vehicles-route-id
+      description: REST surface for nextrip-vehicles-route_id.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          route_id: rest.route_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/{route-id}/{direction-id}/{place-code}
+      name: nextrip-route-id-direction-id-place-code
+      description: REST surface for nextrip-route_id-direction_id-place_code.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          route_id: rest.route_id
+          direction_id: rest.direction_id
+          place_code: rest.place_code
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/nextrip/{stop-id}
+      name: nextrip-stop-id
+      description: REST surface for nextrip-stop_id.
+      operations:
+      - method: GET
+        name: get
+        description: get
+        call: nextrip-nextrip.get
+        with:
+          stop_id: rest.stop_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: nextrip-nextrip-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NexTrip API — NexTrip. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-2
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        route_id: tools.route_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-3
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-4
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        street: tools.street
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-5
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        route_id: tools.route_id
+        direction_id: tools.direction_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-6
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        route_id: tools.route_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-7
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        route_id: tools.route_id
+        direction_id: tools.direction_id
+        place_code: tools.place_code
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-8
+      description: get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nextrip-nextrip.get
+      with:
+        stop_id: tools.stop_id
+      outputParameters:
+      - type: object
+        mapping: $.
