@@ -1,0 +1,1418 @@
+{
+  "item": [
+    {
+      "id": "a06512eb-9172-417e-a59b-6d7c3871e96f",
+      "name": "Planner",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dfe8cd96-b8d5-4d50-b0d8-5606a3fa66c4",
+          "name": "/tripplanner/findaddress/:magicKey/:geolocator",
+          "request": {
+            "name": "/tripplanner/findaddress/:magicKey/:geolocator",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "findaddress",
+                ":magicKey",
+                ":geolocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "magicKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "geolocator",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9363950-2e8f-4383-8552-51b3de984977",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "findaddress",
+                    ":magicKey",
+                    ":geolocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "magicKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geolocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"atis_id\": \"string\",\n  \"x\": 6175.454301196544,\n  \"y\": 4392.567858057812\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37fee518-ee9b-4e41-80c5-109a923f48c5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "findaddress",
+                    ":magicKey",
+                    ":geolocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "magicKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geolocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "937a3060-a9d7-4b1f-9a4c-c8b99882ff7c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "findaddress",
+                    ":magicKey",
+                    ":geolocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "magicKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geolocator",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "266d2d6b-b674-4580-a0ec-13a76f83203b",
+          "name": "/tripplanner/moreinfo",
+          "request": {
+            "name": "/tripplanner/moreinfo",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "moreinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "moreInfo",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85fc97b5-27bc-40a9-ba20-c24727a44bc6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "moreinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "moreInfo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f74acf4-1457-427b-9c95-d0c45c952a55",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "moreinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "moreInfo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a1448f0-462c-450e-a933-394a14822312",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "moreinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "moreInfo",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "659b5a98-5ddf-49bb-892f-0435babc3584",
+          "name": "/tripplanner/nearestlandmark",
+          "request": {
+            "name": "/tripplanner/nearestlandmark",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "nearestlandmark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"maxanswers\": \"<integer>\",\n  \"category\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a4e030d-82d0-4771-bee1-f84afc68305c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestlandmark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"maxanswers\": \"<integer>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ffd1b248-ced7-45f4-be2c-98d9a0bf3415",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestlandmark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"maxanswers\": \"<integer>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f166d8dd-00c7-41bc-a434-2fd215985f04",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestlandmark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"maxanswers\": \"<integer>\",\n  \"category\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26688419-7063-4cf8-b3eb-7ff1f9822b4b",
+          "name": "/tripplanner/nearestparkandrides",
+          "request": {
+            "name": "/tripplanner/nearestparkandrides",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "nearestparkandrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ef921a3-e7e9-40de-aef0-625279ba1057",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestparkandrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "047d858d-d8aa-4c40-a5dc-f2aa321cc582",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestparkandrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28c4ca81-deb4-4bd7-acb6-6411cf238eed",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "nearestparkandrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ac96767-35b7-4f05-a1f9-235d16e84e80",
+          "name": "/tripplanner/plantrip",
+          "request": {
+            "name": "/tripplanner/plantrip",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "plantrip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"destination\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"arrdep\": \"<string>\",\n  \"walkdist\": \"<double>\",\n  \"minimize\": \"<string>\",\n  \"accessible\": \"<boolean>\",\n  \"xmode\": \"<string>\",\n  \"datetime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "30f7ea8c-92d5-434f-a1ef-7bc29357686b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "plantrip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"destination\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"arrdep\": \"<string>\",\n  \"walkdist\": \"<double>\",\n  \"minimize\": \"<string>\",\n  \"accessible\": \"<boolean>\",\n  \"xmode\": \"<string>\",\n  \"datetime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b33f912-4dc7-4873-807f-7b271a36352c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "plantrip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"destination\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"arrdep\": \"<string>\",\n  \"walkdist\": \"<double>\",\n  \"minimize\": \"<string>\",\n  \"accessible\": \"<boolean>\",\n  \"xmode\": \"<string>\",\n  \"datetime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "291b7f6b-b682-45c0-b6e1-cb65527c696c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "plantrip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"origin\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"destination\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"arrdep\": \"<string>\",\n  \"walkdist\": \"<double>\",\n  \"minimize\": \"<string>\",\n  \"accessible\": \"<boolean>\",\n  \"xmode\": \"<string>\",\n  \"datetime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "841648c7-72a1-4394-b721-83b98e8cc7c7",
+          "name": "/tripplanner/routelandmarks",
+          "request": {
+            "name": "/tripplanner/routelandmarks",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "routelandmarks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"route\": \"<string>\",\n  \"category\": \"<string>\",\n  \"noduplicates\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eaba12a1-bc2e-4df6-9523-a85ac0a21536",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "routelandmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"route\": \"<string>\",\n  \"category\": \"<string>\",\n  \"noduplicates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8347192c-232b-47fa-8a42-316eeed9736d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "routelandmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"route\": \"<string>\",\n  \"category\": \"<string>\",\n  \"noduplicates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49365c6f-251f-4000-81a0-fbbc81b9f08c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "routelandmarks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"route\": \"<string>\",\n  \"category\": \"<string>\",\n  \"noduplicates\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad10e153-efd6-4665-ad82-a8ad88eefd91",
+          "name": "/tripplanner/servicenearby",
+          "request": {
+            "name": "/tripplanner/servicenearby",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "servicenearby"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"walkdist\": \"<double>\",\n  \"accessible\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4deba25a-fdc6-4a32-a2ad-acf5ac7ecdeb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "servicenearby"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"walkdist\": \"<double>\",\n  \"accessible\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "448ea04d-8c37-4a9d-8e30-466c10fb2151",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "servicenearby"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"walkdist\": \"<double>\",\n  \"accessible\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55729f07-5f2a-4699-8515-e456577f4156",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "servicenearby"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"description\": \"<string>\",\n    \"point\": {\n      \"x\": \"<double>\",\n      \"y\": \"<double>\"\n    },\n    \"landmarkid\": \"<integer>\"\n  },\n  \"walkdist\": \"<double>\",\n  \"accessible\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49a6c1ef-430f-4e12-9d17-ec972369ab80",
+          "name": "/tripplanner/suggest/:text/:location",
+          "request": {
+            "name": "/tripplanner/suggest/:text/:location",
+            "description": {},
+            "url": {
+              "path": [
+                "tripplanner",
+                "suggest",
+                ":text",
+                ":location"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a488aff5-0e68-4bdf-80db-e430e85984cc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "suggest",
+                    ":text",
+                    ":location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"text\": \"string\",\n    \"magic_key\": \"string\",\n    \"geolocator\": 3733\n  },\n  {\n    \"text\": \"string\",\n    \"magic_key\": \"string\",\n    \"geolocator\": 7594\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d894e18-1570-46f1-8aab-96e878a7d94f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "suggest",
+                    ":text",
+                    ":location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 6256,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c354e98-6bea-438e-949f-5ff0161cc0cf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tripplanner",
+                    "suggest",
+                    ":text",
+                    ":location"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "text",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d7b4eddb-7432-4cab-bea5-fa0a70a14bb6",
+    "name": "Trip Planner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Transit Trip Plans (beta, subject to change)",
+      "type": "text/plain"
+    }
+  }
+}

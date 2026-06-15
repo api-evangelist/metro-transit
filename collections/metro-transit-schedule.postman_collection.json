@@ -1,0 +1,1011 @@
+{
+  "item": [
+    {
+      "id": "930f3e93-beed-490c-bb6c-5a765a36f9c1",
+      "name": "Schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eeb84027-fffd-42a9-8657-9ebb23998957",
+          "name": "/schedule/routedetails/:route_url_param",
+          "request": {
+            "name": "/schedule/routedetails/:route_url_param",
+            "description": {},
+            "url": {
+              "path": [
+                "schedule",
+                "routedetails",
+                ":route_url_param"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "route_url_param",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bc5a4eb-34b7-43bf-9356-9656ecf426e8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routedetails",
+                    ":route_url_param"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_url_param",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"route_id\": \"string\",\n  \"agency_id\": 5277,\n  \"agency_name\": \"string\",\n  \"pick_change\": \"string\",\n  \"route_short_name\": \"string\",\n  \"route_long_name\": \"string\",\n  \"route_desc\": \"string\",\n  \"route_type\": 6269,\n  \"route_type_name\": \"string\",\n  \"route_url\": \"string\",\n  \"route_color\": \"string\",\n  \"route_text_color\": \"string\",\n  \"provider_contact\": \"string\",\n  \"route_comment\": \"string\",\n  \"schedules\": [\n    {\n      \"schedule_type_name\": \"string\",\n      \"view_order\": 5666,\n      \"booking\": \"string\",\n      \"timetables\": [\n        {\n          \"schedule_number\": 8983,\n          \"direction\": \"string\",\n          \"direction_id\": 571\n        },\n        {\n          \"schedule_number\": 3909,\n          \"direction\": \"string\",\n          \"direction_id\": 2482\n        }\n      ]\n    },\n    {\n      \"schedule_type_name\": \"string\",\n      \"view_order\": 41,\n      \"booking\": \"string\",\n      \"timetables\": [\n        {\n          \"schedule_number\": 2285,\n          \"direction\": \"string\",\n          \"direction_id\": 6368\n        },\n        {\n          \"schedule_number\": 636,\n          \"direction\": \"string\",\n          \"direction_id\": 9550\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf9c77b0-2b62-415a-b0fc-5a660f8c5454",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routedetails",
+                    ":route_url_param"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_url_param",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1138,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91310d20-cf01-48a1-97d4-17d98b256218",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routedetails",
+                    ":route_url_param"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_url_param",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fba4e0bd-9380-4003-a79c-5cc86a16a3d3",
+          "name": "/schedule/routes",
+          "request": {
+            "name": "/schedule/routes",
+            "description": {},
+            "url": {
+              "path": [
+                "schedule",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42353fcf-8f5b-4d0a-89a9-682fb0f7af93",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"route_id\": \"string\",\n    \"route_short_name\": \"string\",\n    \"agency_id\": 8270,\n    \"route_label\": \"string\",\n    \"description\": \"string\",\n    \"route_url_param\": \"string\"\n  },\n  {\n    \"route_id\": \"string\",\n    \"route_short_name\": \"string\",\n    \"agency_id\": 7482,\n    \"route_label\": \"string\",\n    \"description\": \"string\",\n    \"route_url_param\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ce37787-0f70-4516-be41-a37709c59d02",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1138,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "247f7de3-8832-4bbd-bb14-945c08e7278e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "deee4bf6-c561-4f50-9a08-553cb4f22f8d",
+          "name": "/schedule/stoplist/:route_id/:schedule_number",
+          "request": {
+            "name": "/schedule/stoplist/:route_id/:schedule_number",
+            "description": {},
+            "url": {
+              "path": [
+                "schedule",
+                "stoplist",
+                ":route_id",
+                ":schedule_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "route_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schedule_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "215f80b2-fba5-4ad0-908b-ce6701a02714",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stoplist",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"stop_id\": 2660,\n    \"stop_name\": \"string\",\n    \"timepoint\": true\n  },\n  {\n    \"stop_id\": 1665,\n    \"stop_name\": \"string\",\n    \"timepoint\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49339cb2-a5ae-426d-8273-e1d2df31b7f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stoplist",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1138,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "921ab1a7-e75b-413c-84b5-aa5167512cce",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stoplist",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ffff86c-6ad4-4c7f-8fa0-ba3ba8d03641",
+          "name": "/schedule/stops/:route_id/:schedule_number/:board_stop/:exit_stop",
+          "request": {
+            "name": "/schedule/stops/:route_id/:schedule_number/:board_stop/:exit_stop",
+            "description": {},
+            "url": {
+              "path": [
+                "schedule",
+                "stops",
+                ":route_id",
+                ":schedule_number",
+                ":board_stop",
+                ":exit_stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "route_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schedule_number",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "board_stop",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "exit_stop",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3554549f-226f-4474-a041-47d182370569",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stops",
+                    ":route_id",
+                    ":schedule_number",
+                    ":board_stop",
+                    ":exit_stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "board_stop",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "exit_stop",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"departures\": [\n    {\n      \"route_label\": \"string\",\n      \"trip_comment\": \"string\",\n      \"board_time\": \"string\",\n      \"board_comment\": \"string\",\n      \"exit_time\": \"string\",\n      \"exit_comment\": \"string\"\n    },\n    {\n      \"route_label\": \"string\",\n      \"trip_comment\": \"string\",\n      \"board_time\": \"string\",\n      \"board_comment\": \"string\",\n      \"exit_time\": \"string\",\n      \"exit_comment\": \"string\"\n    }\n  ],\n  \"footnotes\": [\n    {\n      \"comment_tag\": \"string\",\n      \"comment_text\": \"string\"\n    },\n    {\n      \"comment_tag\": \"string\",\n      \"comment_text\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2867f003-34c9-4ba3-a1c1-9e04420cdef9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stops",
+                    ":route_id",
+                    ":schedule_number",
+                    ":board_stop",
+                    ":exit_stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "board_stop",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "exit_stop",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1138,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95cde90c-5016-4d1f-b1ed-83d813e4a107",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "stops",
+                    ":route_id",
+                    ":schedule_number",
+                    ":board_stop",
+                    ":exit_stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "board_stop",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "exit_stop",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "665dc043-327e-4fac-9e0a-5babb992956e",
+          "name": "/schedule/timetable/:route_id/:schedule_number",
+          "request": {
+            "name": "/schedule/timetable/:route_id/:schedule_number",
+            "description": {},
+            "url": {
+              "path": [
+                "schedule",
+                "timetable",
+                ":route_id",
+                ":schedule_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "route_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "schedule_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73d87ff7-5c1b-43e1-a88c-57f460a7b09d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "timetable",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"timepoints\": [\n    {\n      \"timepoint_label\": \"string\",\n      \"place_sequence\": 7374,\n      \"map_reference\": 2926,\n      \"downtown_zone\": \"string\"\n    },\n    {\n      \"timepoint_label\": \"string\",\n      \"place_sequence\": 5125,\n      \"map_reference\": 1707,\n      \"downtown_zone\": \"string\"\n    }\n  ],\n  \"trips\": [\n    {\n      \"route_label\": \"string\",\n      \"comment_tag\": \"string\",\n      \"stop_times\": [\n        {\n          \"departure_time\": \"string\",\n          \"place_sequence\": 3951,\n          \"comment_tag\": \"string\"\n        },\n        {\n          \"departure_time\": \"string\",\n          \"place_sequence\": 430,\n          \"comment_tag\": \"string\"\n        }\n      ]\n    },\n    {\n      \"route_label\": \"string\",\n      \"comment_tag\": \"string\",\n      \"stop_times\": [\n        {\n          \"departure_time\": \"string\",\n          \"place_sequence\": 1437,\n          \"comment_tag\": \"string\"\n        },\n        {\n          \"departure_time\": \"string\",\n          \"place_sequence\": 2692,\n          \"comment_tag\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"footnotes\": [\n    {\n      \"comment_tag\": \"string\",\n      \"comment_text\": \"string\"\n    },\n    {\n      \"comment_tag\": \"string\",\n      \"comment_text\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80d9302a-6564-408a-be83-4eab8cb05ecb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "timetable",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1138,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f1f82fb-fb53-47e9-9647-29de8f46235a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "timetable",
+                    ":route_id",
+                    ":schedule_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "route_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "schedule_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d8eeaa10-73b7-4723-b578-1410df78e28e",
+    "name": "Schedule API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for getting Metro Transit planned schedule information.",
+      "type": "text/plain"
+    }
+  }
+}

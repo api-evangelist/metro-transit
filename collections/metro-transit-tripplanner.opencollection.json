@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Trip Planner API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Planner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /tripplanner/findaddress/{magicKey}/{geolocator}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tripplanner/findaddress/:magicKey/:geolocator",
+            "params": [
+              {
+                "name": "magicKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "geolocator",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/moreinfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/moreinfo",
+            "params": [
+              {
+                "name": "moreInfo",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/nearestlandmark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/nearestlandmark",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/nearestparkandrides",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/nearestparkandrides",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/plantrip",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/plantrip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/routelandmarks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/routelandmarks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /tripplanner/servicenearby",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/tripplanner/servicenearby",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /tripplanner/suggest/{text}/{location}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/tripplanner/suggest/:text/:location",
+            "params": [
+              {
+                "name": "text",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

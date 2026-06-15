@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NexTrip API",
+    "version": "2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NexTrip",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /nextrip/{route_id}/{direction_id}/{place_code}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/:route_id/:direction_id/:place_code",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "direction_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "place_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/{stop_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/:stop_id",
+            "params": [
+              {
+                "name": "stop_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/agencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/agencies"
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/directions/{route_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/directions/:route_id",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/routes"
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/stopid/{street}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/stopid/:street",
+            "params": [
+              {
+                "name": "street",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/stops/{route_id}/{direction_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/stops/:route_id/:direction_id",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "direction_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /nextrip/vehicles/{route_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/nextrip/vehicles/:route_id",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

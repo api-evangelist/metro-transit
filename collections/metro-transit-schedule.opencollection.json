@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Schedule API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /schedule/routedetails/{route_url_param}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/schedule/routedetails/:route_url_param",
+            "params": [
+              {
+                "name": "route_url_param",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /schedule/routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/schedule/routes"
+          }
+        },
+        {
+          "info": {
+            "name": "GET /schedule/stoplist/{route_id}/{schedule_number}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/schedule/stoplist/:route_id/:schedule_number",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /schedule/stops/{route_id}/{schedule_number}/{board_stop}/{exit_stop}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/schedule/stops/:route_id/:schedule_number/:board_stop/:exit_stop",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_number",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "board_stop",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "exit_stop",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "GET /schedule/timetable/{route_id}/{schedule_number}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/schedule/timetable/:route_id/:schedule_number",
+            "params": [
+              {
+                "name": "route_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
