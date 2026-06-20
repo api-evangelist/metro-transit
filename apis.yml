@@ -5,7 +5,7 @@ description: >-
   Minneapolis-Saint Paul metropolitan transit system. The APIs support creating transit departure displays and accessing
   real-time bus and train arrival data for the Twin Cities.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Minneapolis
   - Minnesota
