@@ -86,6 +86,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/openapi/metro-transit-schedule-openapi.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/metro-transit-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/metro-transit-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/metrotransit
   - type: LinkedIn
