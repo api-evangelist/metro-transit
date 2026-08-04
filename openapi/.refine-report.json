@@ -1,0 +1,20 @@
+{
+  "provider": "metro-transit",
+  "sources": [
+    "metro-transit-alerts-api-openapi.yml",
+    "metro-transit-nextrip-api-openapi.yml",
+    "metro-transit-planner-api-openapi.yml",
+    "metro-transit-schedule-api-openapi.yml"
+  ],
+  "outputs": [
+    "metro-transit-alerts-api-openapi.yml",
+    "metro-transit-nextrip-api-openapi.yml",
+    "metro-transit-planner-api-openapi.yml",
+    "metro-transit-schedule-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

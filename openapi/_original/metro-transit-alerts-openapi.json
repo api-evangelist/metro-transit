@@ -1,0 +1,371 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Service Alerts API",
+    "description": "API for retrieving Transit Service Alerts",
+    "version": "1"
+  },
+  "paths": {
+    "/alerts/{id}": {
+      "get": {
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IAlert"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/alerts/alert/{id}": {
+      "get": {
+        "tags": [
+          "Alerts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IAlert"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/alerts/all": {
+      "get": {
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IAlert"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EntitySelector": {
+        "type": "object",
+        "properties": {
+          "agency_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "direction_text": {
+            "type": "string",
+            "nullable": true
+          },
+          "trip": {
+            "$ref": "#/components/schemas/TripDescriptor"
+          },
+          "stop_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_label": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IAlert": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "last_modified_timestamp": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "alert_lifecycle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "active_period": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TimeRange"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "informed_entity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntitySelector"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "cause": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "effect": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "effect_detail": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "url": {
+            "$ref": "#/components/schemas/TranslatedString"
+          },
+          "header_text": {
+            "$ref": "#/components/schemas/TranslatedString"
+          },
+          "description_text": {
+            "$ref": "#/components/schemas/TranslatedString"
+          },
+          "severity_level": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "image": {
+            "$ref": "#/components/schemas/Image"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Image": {
+        "type": "object",
+        "properties": {
+          "localized_image": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocalizedImage"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LocalizedImage": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "media_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "TimeRange": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "end": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TranslatedString": {
+        "type": "object",
+        "properties": {
+          "translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Translation"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Translation": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TripDescriptor": {
+        "type": "object",
+        "properties": {
+          "trip_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "route_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "direction_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction_text": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Alerts"
+    }
+  ]
+}
