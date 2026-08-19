@@ -27,7 +27,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/apis.yml
 created: '2025-05-02'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: metro-transit:metro-transit-alerts-api
   name: Metro Transit Alerts API
