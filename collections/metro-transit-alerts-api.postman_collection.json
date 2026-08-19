@@ -1,0 +1,505 @@
+{
+  "item": [
+    {
+      "id": "26e7fcab-f674-4299-972d-7700d79ca6f4",
+      "name": "Alerts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c701cb1f-d1d4-4f10-ac25-b3196a785471",
+          "name": "/alerts/:id",
+          "request": {
+            "name": "/alerts/:id",
+            "description": {},
+            "url": {
+              "path": [
+                "alerts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b06a46c1-674e-4937-b870-e3fdc1c097cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"last_modified_timestamp\": 4187,\n    \"alert_lifecycle\": \"string\",\n    \"active_period\": [\n      {\n        \"start\": 1818,\n        \"end\": 9737\n      },\n      {\n        \"start\": 4470,\n        \"end\": 6193\n      }\n    ],\n    \"informed_entity\": [\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 260,\n        \"direction_id\": 9938,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 9921,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      },\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 3145,\n        \"direction_id\": 7096,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 5130,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      }\n    ],\n    \"cause\": \"string\",\n    \"effect\": \"string\",\n    \"effect_detail\": \"string\",\n    \"url\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"header_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"description_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"severity_level\": \"string\",\n    \"image\": {\n      \"localized_image\": [\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"last_modified_timestamp\": 4710,\n    \"alert_lifecycle\": \"string\",\n    \"active_period\": [\n      {\n        \"start\": 1224,\n        \"end\": 1886\n      },\n      {\n        \"start\": 962,\n        \"end\": 5717\n      }\n    ],\n    \"informed_entity\": [\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 4949,\n        \"direction_id\": 2688,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 6211,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      },\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 1046,\n        \"direction_id\": 858,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 1364,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      }\n    ],\n    \"cause\": \"string\",\n    \"effect\": \"string\",\n    \"effect_detail\": \"string\",\n    \"url\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"header_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"description_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"severity_level\": \"string\",\n    \"image\": {\n      \"localized_image\": [\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c91b829-763b-4e8a-b525-e49144ee0bf5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4839,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87396087-3c17-40b6-a5cd-e35c429610fb",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c608e077-ed8e-4fd8-84be-152f334efcb2",
+          "name": "/alerts/alert/:id",
+          "request": {
+            "name": "/alerts/alert/:id",
+            "description": {},
+            "url": {
+              "path": [
+                "alerts",
+                "alert",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5393d1ac-6af7-49fc-b8c6-f30e1e5ed3b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "alert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"last_modified_timestamp\": 1271,\n  \"alert_lifecycle\": \"string\",\n  \"active_period\": [\n    {\n      \"start\": 6655,\n      \"end\": 9586\n    },\n    {\n      \"start\": 3713,\n      \"end\": 5361\n    }\n  ],\n  \"informed_entity\": [\n    {\n      \"agency_id\": \"string\",\n      \"route_id\": \"string\",\n      \"route_type\": 1932,\n      \"direction_id\": 5837,\n      \"direction_text\": \"string\",\n      \"trip\": {\n        \"trip_id\": \"string\",\n        \"route_id\": \"string\",\n        \"direction_id\": 6153,\n        \"direction_text\": \"string\"\n      },\n      \"stop_id\": \"string\",\n      \"route_label\": \"string\"\n    },\n    {\n      \"agency_id\": \"string\",\n      \"route_id\": \"string\",\n      \"route_type\": 3878,\n      \"direction_id\": 6485,\n      \"direction_text\": \"string\",\n      \"trip\": {\n        \"trip_id\": \"string\",\n        \"route_id\": \"string\",\n        \"direction_id\": 956,\n        \"direction_text\": \"string\"\n      },\n      \"stop_id\": \"string\",\n      \"route_label\": \"string\"\n    }\n  ],\n  \"cause\": \"string\",\n  \"effect\": \"string\",\n  \"effect_detail\": \"string\",\n  \"url\": {\n    \"translation\": [\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      }\n    ]\n  },\n  \"header_text\": {\n    \"translation\": [\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      }\n    ]\n  },\n  \"description_text\": {\n    \"translation\": [\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"language\": \"string\"\n      }\n    ]\n  },\n  \"severity_level\": \"string\",\n  \"image\": {\n    \"localized_image\": [\n      {\n        \"url\": \"string\",\n        \"media_type\": \"string\",\n        \"language\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"media_type\": \"string\",\n        \"language\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f24b40f8-9600-4ac5-a9a0-b603ed9b5bbc",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "alert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4839,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9d920bf-1cdf-431d-b07a-103321bff1e4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "alert",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a42f46a8-727e-4650-adfa-036f765a43b9",
+          "name": "/alerts/all",
+          "request": {
+            "name": "/alerts/all",
+            "description": {},
+            "url": {
+              "path": [
+                "alerts",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98bce461-49ec-462c-907e-5ce8dc940e3d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"last_modified_timestamp\": 1300,\n    \"alert_lifecycle\": \"string\",\n    \"active_period\": [\n      {\n        \"start\": 2569,\n        \"end\": 2467\n      },\n      {\n        \"start\": 1732,\n        \"end\": 8518\n      }\n    ],\n    \"informed_entity\": [\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 8450,\n        \"direction_id\": 673,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 7353,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      },\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 4430,\n        \"direction_id\": 2576,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 1054,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      }\n    ],\n    \"cause\": \"string\",\n    \"effect\": \"string\",\n    \"effect_detail\": \"string\",\n    \"url\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"header_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"description_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"severity_level\": \"string\",\n    \"image\": {\n      \"localized_image\": [\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"last_modified_timestamp\": 6497,\n    \"alert_lifecycle\": \"string\",\n    \"active_period\": [\n      {\n        \"start\": 5911,\n        \"end\": 7059\n      },\n      {\n        \"start\": 4180,\n        \"end\": 376\n      }\n    ],\n    \"informed_entity\": [\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 924,\n        \"direction_id\": 9026,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 9865,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      },\n      {\n        \"agency_id\": \"string\",\n        \"route_id\": \"string\",\n        \"route_type\": 9334,\n        \"direction_id\": 9557,\n        \"direction_text\": \"string\",\n        \"trip\": {\n          \"trip_id\": \"string\",\n          \"route_id\": \"string\",\n          \"direction_id\": 1118,\n          \"direction_text\": \"string\"\n        },\n        \"stop_id\": \"string\",\n        \"route_label\": \"string\"\n      }\n    ],\n    \"cause\": \"string\",\n    \"effect\": \"string\",\n    \"effect_detail\": \"string\",\n    \"url\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"header_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"description_text\": {\n      \"translation\": [\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"text\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    },\n    \"severity_level\": \"string\",\n    \"image\": {\n      \"localized_image\": [\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"media_type\": \"string\",\n          \"language\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61753f20-bd69-4381-9ca3-3bedfe92b41c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 4839,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f625e12-4303-4cd2-8dc0-dbdda8a28c4a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alerts",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb2f6797-fb1d-4777-9a9d-3e478fbcf48a",
+    "name": "Service Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving Transit Service Alerts",
+      "type": "text/plain"
+    }
+  }
+}
