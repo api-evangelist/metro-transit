@@ -1,7 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Service Alerts Planner API
-  description: API for retrieving Transit Service Alerts
+  title: Trip Planner API
+  description: API for retrieving Transit Trip Plans (beta, subject to change)
   version: '1'
 tags:
 - name: Planner
@@ -37,6 +37,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get tripplanner findaddress by magic key by geolocator
+      x-summary-source: derived
+      operationId: getTripplannerFindaddressByMagicKeyByGeolocator
+      x-operation-id-source: derived
   /tripplanner/moreinfo:
     post:
       tags:
@@ -57,6 +61,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner moreinfo
+      x-summary-source: derived
+      operationId: postTripplannerMoreinfo
+      x-operation-id-source: derived
   /tripplanner/nearestlandmark:
     post:
       tags:
@@ -83,6 +91,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner nearestlandmark
+      x-summary-source: derived
+      operationId: postTripplannerNearestlandmark
+      x-operation-id-source: derived
   /tripplanner/nearestparkandrides:
     post:
       tags:
@@ -109,6 +121,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner nearestparkandrides
+      x-summary-source: derived
+      operationId: postTripplannerNearestparkandrides
+      x-operation-id-source: derived
   /tripplanner/plantrip:
     post:
       tags:
@@ -135,6 +151,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner plantrip
+      x-summary-source: derived
+      operationId: postTripplannerPlantrip
+      x-operation-id-source: derived
   /tripplanner/routelandmarks:
     post:
       tags:
@@ -161,6 +181,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner routelandmarks
+      x-summary-source: derived
+      operationId: postTripplannerRoutelandmarks
+      x-operation-id-source: derived
   /tripplanner/servicenearby:
     post:
       tags:
@@ -187,6 +211,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Create tripplanner servicenearby
+      x-summary-source: derived
+      operationId: postTripplannerServicenearby
+      x-operation-id-source: derived
   /tripplanner/suggest/{text}/{location}:
     get:
       tags:
@@ -220,112 +248,12 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get tripplanner suggest by text by location
+      x-summary-source: derived
+      operationId: getTripplannerSuggestByTextByLocation
+      x-operation-id-source: derived
 components:
   schemas:
-    PlannerLocation:
-      type: object
-      properties:
-        description:
-          type: string
-          nullable: true
-        point:
-          $ref: '#/components/schemas/Point'
-        landmarkid:
-          type: integer
-          format: int32
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        status:
-          type: integer
-          format: int32
-          nullable: true
-        detail:
-          type: string
-          nullable: true
-        instance:
-          type: string
-          nullable: true
-      additionalProperties: {}
-    Suggestion:
-      type: object
-      properties:
-        text:
-          type: string
-          nullable: true
-        magic_key:
-          type: string
-          nullable: true
-        geolocator:
-          type: integer
-          format: int32
-      additionalProperties: false
-    NearestparkandrideInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-      additionalProperties: false
-    PlantripInput:
-      type: object
-      properties:
-        origin:
-          $ref: '#/components/schemas/PlannerLocation'
-        destination:
-          $ref: '#/components/schemas/PlannerLocation'
-        arrdep:
-          type: string
-          nullable: true
-        walkdist:
-          type: number
-          format: double
-        minimize:
-          type: string
-          nullable: true
-        accessible:
-          type: boolean
-        xmode:
-          type: string
-          nullable: true
-        datetime:
-          type: string
-          format: date-time
-      additionalProperties: false
-    RoutelandmarksInput:
-      type: object
-      properties:
-        route:
-          type: string
-          nullable: true
-        category:
-          type: string
-          nullable: true
-        noduplicates:
-          type: boolean
-      additionalProperties: false
-    FindAddressResponse:
-      type: object
-      properties:
-        address:
-          type: string
-          nullable: true
-        atis_id:
-          type: string
-          nullable: true
-        x:
-          type: number
-          format: double
-        y:
-          type: number
-          format: double
-      additionalProperties: false
     Point:
       type: object
       properties:
@@ -335,6 +263,58 @@ components:
         y:
           type: number
           format: double
+      additionalProperties: false
+    NearestparkandrideInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+      additionalProperties: false
+    FindAddressResponse:
+      type: object
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        atis_id:
+          type:
+          - string
+          - 'null'
+        x:
+          type: number
+          format: double
+        y:
+          type: number
+          format: double
+      additionalProperties: false
+    PlantripInput:
+      type: object
+      properties:
+        origin:
+          $ref: '#/components/schemas/PlannerLocation'
+        destination:
+          $ref: '#/components/schemas/PlannerLocation'
+        arrdep:
+          type:
+          - string
+          - 'null'
+        walkdist:
+          type: number
+          format: double
+        minimize:
+          type:
+          - string
+          - 'null'
+        accessible:
+          type: boolean
+        xmode:
+          type:
+          - string
+          - 'null'
+        datetime:
+          type: string
+          format: date-time
       additionalProperties: false
     ServicenearbyInput:
       type: object
@@ -347,6 +327,73 @@ components:
         accessible:
           type: boolean
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    Suggestion:
+      type: object
+      properties:
+        text:
+          type:
+          - string
+          - 'null'
+        magic_key:
+          type:
+          - string
+          - 'null'
+        geolocator:
+          type: integer
+          format: int32
+      additionalProperties: false
+    PlannerLocation:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        point:
+          $ref: '#/components/schemas/Point'
+        landmarkid:
+          type: integer
+          format: int32
+      additionalProperties: false
+    RoutelandmarksInput:
+      type: object
+      properties:
+        route:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        noduplicates:
+          type: boolean
+      additionalProperties: false
     NearestlandmarkInput:
       type: object
       properties:
@@ -356,6 +403,7 @@ components:
           type: integer
           format: int32
         category:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false

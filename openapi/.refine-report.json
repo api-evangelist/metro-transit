@@ -1,20 +1,32 @@
 {
   "provider": "metro-transit",
   "sources": [
-    "metro-transit-alerts-api-openapi.yml",
-    "metro-transit-nextrip-api-openapi.yml",
-    "metro-transit-planner-api-openapi.yml",
-    "metro-transit-schedule-api-openapi.yml"
+    "_original/metro-transit-alerts-openapi.json",
+    "_original/metro-transit-nextrip-openapi.json",
+    "_original/metro-transit-schedule-openapi.json",
+    "_original/metro-transit-tripplanner-openapi.json"
   ],
   "outputs": [
     "metro-transit-alerts-api-openapi.yml",
     "metro-transit-nextrip-api-openapi.yml",
-    "metro-transit-planner-api-openapi.yml",
-    "metro-transit-schedule-api-openapi.yml"
+    "metro-transit-schedule-api-openapi.yml",
+    "metro-transit-planner-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (4 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "metro-transit-alerts-openapi.json: upgraded openapi 3.0.4 -> OpenAPI 3.2.0",
+    "metro-transit-nextrip-openapi.json: upgraded openapi 3.0.4 -> OpenAPI 3.2.0",
+    "metro-transit-schedule-openapi.json: upgraded openapi 3.0.4 -> OpenAPI 3.2.0",
+    "metro-transit-tripplanner-openapi.json: upgraded openapi 3.0.4 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "metro-transit-alerts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-transit-nextrip-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-transit-planner-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "metro-transit-schedule-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

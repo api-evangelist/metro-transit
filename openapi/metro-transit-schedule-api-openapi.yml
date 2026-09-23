@@ -1,7 +1,7 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Service Alerts Schedule API
-  description: API for retrieving Transit Service Alerts
+  title: Schedule API
+  description: API for getting Metro Transit planned schedule information.
   version: '1'
 tags:
 - name: Schedule
@@ -31,6 +31,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get schedule routedetails by route url param
+      x-summary-source: derived
+      operationId: getScheduleRoutedetailsByRouteUrlParam
+      x-operation-id-source: derived
   /schedule/routes:
     get:
       tags:
@@ -52,6 +56,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get schedule routes
+      x-summary-source: derived
+      operationId: getScheduleRoutes
+      x-operation-id-source: derived
   /schedule/stoplist/{route_id}/{schedule_number}:
     get:
       tags:
@@ -85,6 +93,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get schedule stoplist by route id by schedule number
+      x-summary-source: derived
+      operationId: getScheduleStoplistByRouteIdByScheduleNumber
+      x-operation-id-source: derived
   /schedule/stops/{route_id}/{schedule_number}/{board_stop}/{exit_stop}:
     get:
       tags:
@@ -128,6 +140,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get schedule stops by route id by schedule number by board stop by exit stop
+      x-summary-source: derived
+      operationId: getScheduleStopsByRouteIdByScheduleNumberByBoardStopByExitStop
+      x-operation-id-source: derived
   /schedule/timetable/{route_id}/{schedule_number}:
     get:
       tags:
@@ -159,31 +175,122 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get schedule timetable by route id by schedule number
+      x-summary-source: derived
+      operationId: getScheduleTimetableByRouteIdByScheduleNumber
+      x-operation-id-source: derived
 components:
   schemas:
+    ScheduleType:
+      type: object
+      properties:
+        schedule_type_name:
+          type:
+          - string
+          - 'null'
+        view_order:
+          type: integer
+          format: int32
+        booking:
+          type:
+          - string
+          - 'null'
+        timetables:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TimetableDetail'
+      additionalProperties: false
+    TimetableDetail:
+      type: object
+      properties:
+        schedule_number:
+          type: integer
+          format: int32
+        direction:
+          type:
+          - string
+          - 'null'
+        direction_id:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Trip:
+      type: object
+      properties:
+        route_label:
+          type:
+          - string
+          - 'null'
+        comment_tag:
+          type:
+          - string
+          - 'null'
+        stop_times:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/StopTime'
+      additionalProperties: false
     StopBoardExit:
       type: object
       properties:
         route_label:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         trip_comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         board_time:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         board_comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           readOnly: true
         exit_time:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         exit_comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
+          readOnly: true
+      additionalProperties: false
+    RouteListItem:
+      type: object
+      properties:
+        route_id:
+          type:
+          - string
+          - 'null'
+        route_short_name:
+          type:
+          - string
+          - 'null'
+        agency_id:
+          type: integer
+          format: int32
+        route_label:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        route_url_param:
+          type:
+          - string
+          - 'null'
           readOnly: true
       additionalProperties: false
     StopListItem:
@@ -193,8 +300,9 @@ components:
           type: integer
           format: int32
         stop_name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         timepoint:
           type: boolean
       additionalProperties: false
@@ -202,175 +310,168 @@ components:
       type: object
       properties:
         type:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         title:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         status:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         detail:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         instance:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: {}
+    Footnote:
+      type: object
+      properties:
+        comment_tag:
+          type:
+          - string
+          - 'null'
+        comment_text:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     StopSchedule:
       type: object
       properties:
         departures:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/StopBoardExit'
-          nullable: true
         footnotes:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Footnote'
-          nullable: true
-      additionalProperties: false
-    RouteDetails:
-      type: object
-      properties:
-        route_id:
-          type: string
-          nullable: true
-        agency_id:
-          type: integer
-          format: int32
-        agency_name:
-          type: string
-          nullable: true
-        pick_change:
-          type: string
-          nullable: true
-        route_short_name:
-          type: string
-          nullable: true
-        route_long_name:
-          type: string
-          nullable: true
-        route_desc:
-          type: string
-          nullable: true
-        route_type:
-          type: integer
-          format: int32
-        route_type_name:
-          type: string
-          nullable: true
-          readOnly: true
-        route_url:
-          type: string
-          nullable: true
-        route_color:
-          type: string
-          nullable: true
-        route_text_color:
-          type: string
-          nullable: true
-        provider_contact:
-          type: string
-          nullable: true
-        route_comment:
-          type: string
-          nullable: true
-        schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduleType'
-          nullable: true
-      additionalProperties: false
-    TimetableDetail:
-      type: object
-      properties:
-        schedule_number:
-          type: integer
-          format: int32
-        direction:
-          type: string
-          nullable: true
-        direction_id:
-          type: integer
-          format: int32
-      additionalProperties: false
-    StopTime:
-      type: object
-      properties:
-        departure_time:
-          type: string
-          nullable: true
-        place_sequence:
-          type: integer
-          format: int32
-        comment_tag:
-          type: string
-          nullable: true
       additionalProperties: false
     Timetable:
       type: object
       properties:
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         timepoints:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Timepoint'
-          nullable: true
         trips:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Trip'
-          nullable: true
         footnotes:
-          type: array
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Footnote'
-          nullable: true
       additionalProperties: false
-    Footnote:
+    StopTime:
       type: object
       properties:
+        departure_time:
+          type:
+          - string
+          - 'null'
+        place_sequence:
+          type: integer
+          format: int32
         comment_tag:
-          type: string
-          nullable: true
-        comment_text:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    RouteListItem:
+    RouteDetails:
       type: object
       properties:
         route_id:
-          type: string
-          nullable: true
-        route_short_name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         agency_id:
           type: integer
           format: int32
-        route_label:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
-        route_url_param:
-          type: string
-          nullable: true
+        agency_name:
+          type:
+          - string
+          - 'null'
+        pick_change:
+          type:
+          - string
+          - 'null'
+        route_short_name:
+          type:
+          - string
+          - 'null'
+        route_long_name:
+          type:
+          - string
+          - 'null'
+        route_desc:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type: integer
+          format: int32
+        route_type_name:
+          type:
+          - string
+          - 'null'
           readOnly: true
+        route_url:
+          type:
+          - string
+          - 'null'
+        route_color:
+          type:
+          - string
+          - 'null'
+        route_text_color:
+          type:
+          - string
+          - 'null'
+        provider_contact:
+          type:
+          - string
+          - 'null'
+        route_comment:
+          type:
+          - string
+          - 'null'
+        schedules:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ScheduleType'
       additionalProperties: false
     Timepoint:
       type: object
       properties:
         timepoint_label:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         place_sequence:
           type: integer
           format: int32
@@ -378,39 +479,7 @@ components:
           type: integer
           format: int32
         downtown_zone:
-          type: string
-          nullable: true
-      additionalProperties: false
-    ScheduleType:
-      type: object
-      properties:
-        schedule_type_name:
-          type: string
-          nullable: true
-        view_order:
-          type: integer
-          format: int32
-        booking:
-          type: string
-          nullable: true
-        timetables:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimetableDetail'
-          nullable: true
-      additionalProperties: false
-    Trip:
-      type: object
-      properties:
-        route_label:
-          type: string
-          nullable: true
-        comment_tag:
-          type: string
-          nullable: true
-        stop_times:
-          type: array
-          items:
-            $ref: '#/components/schemas/StopTime'
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false

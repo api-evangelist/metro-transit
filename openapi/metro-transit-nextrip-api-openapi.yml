@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.2.0
 info:
-  title: Service Alerts NexTrip API
-  description: API for retrieving Transit Service Alerts
-  version: '1'
+  title: Nex Trip API
+  description: API for creating Metro Transit real-time departure information display (beta, subject to change)
+  version: '2'
 tags:
 - name: NexTrip
 paths:
@@ -42,6 +42,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip by route id by direction id by place code
+      x-summary-source: derived
+      operationId: getNextripByRouteIdByDirectionIdByPlaceCode
+      x-operation-id-source: derived
   /nextrip/{stop_id}:
     get:
       tags:
@@ -68,6 +72,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip by stop id
+      x-summary-source: derived
+      operationId: getNextripByStopId
+      x-operation-id-source: derived
   /nextrip/agencies:
     get:
       tags:
@@ -89,6 +97,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip agencies
+      x-summary-source: derived
+      operationId: getNextripAgencies
+      x-operation-id-source: derived
   /nextrip/directions/{route_id}:
     get:
       tags:
@@ -116,6 +128,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip directions by route id
+      x-summary-source: derived
+      operationId: getNextripDirectionsByRouteId
+      x-operation-id-source: derived
   /nextrip/routes:
     get:
       tags:
@@ -137,6 +153,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip routes
+      x-summary-source: derived
+      operationId: getNextripRoutes
+      x-operation-id-source: derived
   /nextrip/stopid/{street}:
     get:
       tags:
@@ -164,6 +184,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip stopid by street
+      x-summary-source: derived
+      operationId: getNextripStopidByStreet
+      x-operation-id-source: derived
   /nextrip/stops/{route_id}/{direction_id}:
     get:
       tags:
@@ -197,6 +221,10 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip stops by route id by direction id
+      x-summary-source: derived
+      operationId: getNextripStopsByRouteIdByDirectionId
+      x-operation-id-source: derived
   /nextrip/vehicles/{route_id}:
     get:
       tags:
@@ -224,107 +252,48 @@ paths:
                 $ref: '#/components/schemas/ProblemDetails'
         '500':
           description: Internal Server Error
+      summary: Get nextrip vehicles by route id
+      x-summary-source: derived
+      operationId: getNextripVehiclesByRouteId
+      x-operation-id-source: derived
 components:
   schemas:
-    ProblemDetails:
+    Direction:
       type: object
       properties:
-        type:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        status:
-          type: integer
-          format: int32
-          nullable: true
-        detail:
-          type: string
-          nullable: true
-        instance:
-          type: string
-          nullable: true
-      additionalProperties: {}
-    Route:
-      type: object
-      properties:
-        route_id:
-          type: string
-          nullable: true
-        agency_id:
-          type: integer
-          format: int32
-        route_label:
-          type: string
-          nullable: true
-      additionalProperties: false
-    Departure:
-      type: object
-      properties:
-        actual:
-          type: boolean
-        trip_id:
-          type: string
-          nullable: true
-        stop_id:
-          type: integer
-          format: int32
-        departure_text:
-          type: string
-          nullable: true
-        departure_time:
-          type: integer
-          format: int64
-        description:
-          type: string
-          nullable: true
-        gate:
-          type: string
-          nullable: true
-        route_id:
-          type: string
-          nullable: true
-        route_short_name:
-          type: string
-          nullable: true
         direction_id:
           type: integer
           format: int32
-        direction_text:
-          type: string
-          nullable: true
-        terminal:
-          type: string
-          nullable: true
-        agency_id:
-          type: integer
-          format: int32
-        schedule_relationship:
-          type: string
-          nullable: true
+        direction_name:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     Vehicle:
       type: object
       properties:
         trip_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         direction_id:
           type: integer
           format: int32
         direction:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         location_time:
           type: integer
           format: int64
         route_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         terminal:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         latitude:
           type: number
           format: float
@@ -341,6 +310,18 @@ components:
           type: number
           format: float
       additionalProperties: false
+    Place:
+      type: object
+      properties:
+        place_code:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
     Stop:
       type: object
       properties:
@@ -354,18 +335,81 @@ components:
           type: number
           format: double
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    Place:
+    ProblemDetails:
       type: object
       properties:
-        place_code:
-          type: string
-          nullable: true
-        description:
-          type: string
-          nullable: true
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    AlertMessage:
+      type: object
+      properties:
+        stop_closed:
+          type: boolean
+        alert_text:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    NexTripResult:
+      type: object
+      properties:
+        stops:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Stop'
+        alerts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AlertMessage'
+        departures:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Departure'
+      additionalProperties: false
+    Route:
+      type: object
+      properties:
+        route_id:
+          type:
+          - string
+          - 'null'
+        agency_id:
+          type: integer
+          format: int32
+        route_label:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     Agency:
       type: object
@@ -374,44 +418,61 @@ components:
           type: integer
           format: int32
         agency_name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       additionalProperties: false
-    Direction:
+    Departure:
       type: object
       properties:
+        actual:
+          type: boolean
+        trip_id:
+          type:
+          - string
+          - 'null'
+        stop_id:
+          type: integer
+          format: int32
+        departure_text:
+          type:
+          - string
+          - 'null'
+        departure_time:
+          type: integer
+          format: int64
+        description:
+          type:
+          - string
+          - 'null'
+        gate:
+          type:
+          - string
+          - 'null'
+        route_id:
+          type:
+          - string
+          - 'null'
+        route_short_name:
+          type:
+          - string
+          - 'null'
         direction_id:
           type: integer
           format: int32
-        direction_name:
-          type: string
-          nullable: true
-      additionalProperties: false
-    NexTripResult:
-      type: object
-      properties:
-        stops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stop'
-          nullable: true
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/AlertMessage'
-          nullable: true
-        departures:
-          type: array
-          items:
-            $ref: '#/components/schemas/Departure'
-          nullable: true
-      additionalProperties: false
-    AlertMessage:
-      type: object
-      properties:
-        stop_closed:
-          type: boolean
-        alert_text:
-          type: string
-          nullable: true
+        direction_text:
+          type:
+          - string
+          - 'null'
+        terminal:
+          type:
+          - string
+          - 'null'
+        agency_id:
+          type: integer
+          format: int32
+        schedule_relationship:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
