@@ -93,15 +93,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Image:
+    LocalizedImage:
       type: object
       properties:
-        localized_image:
+        url:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            $ref: '#/components/schemas/LocalizedImage'
+        media_type:
+          type:
+          - string
+          - 'null'
+        language:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     TranslatedString:
       type: object
@@ -113,17 +119,15 @@ components:
           items:
             $ref: '#/components/schemas/Translation'
       additionalProperties: false
-    TimeRange:
+    Image:
       type: object
       properties:
-        start:
-          type: integer
-          format: int64
-        end:
+        localized_image:
           type:
-          - integer
+          - array
           - 'null'
-          format: int64
+          items:
+            $ref: '#/components/schemas/LocalizedImage'
       additionalProperties: false
     TripDescriptor:
       type: object
@@ -144,31 +148,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
     EntitySelector:
       type: object
       properties:
@@ -276,19 +255,40 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    LocalizedImage:
+    TimeRange:
       type: object
       properties:
-        url:
+        start:
+          type: integer
+          format: int64
+        end:
           type:
-          - string
+          - integer
           - 'null'
-        media_type:
-          type:
-          - string
-          - 'null'
-        language:
-          type:
-          - string
-          - 'null'
+          format: int64
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}

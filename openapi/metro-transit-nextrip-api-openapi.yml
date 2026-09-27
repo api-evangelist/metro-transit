@@ -258,6 +258,38 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AlertMessage:
+      type: object
+      properties:
+        stop_closed:
+          type: boolean
+        alert_text:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    NexTripResult:
+      type: object
+      properties:
+        stops:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Stop'
+        alerts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AlertMessage'
+        departures:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Departure'
+      additionalProperties: false
     Direction:
       type: object
       properties:
@@ -339,89 +371,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
-    AlertMessage:
-      type: object
-      properties:
-        stop_closed:
-          type: boolean
-        alert_text:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    NexTripResult:
-      type: object
-      properties:
-        stops:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Stop'
-        alerts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/AlertMessage'
-        departures:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Departure'
-      additionalProperties: false
-    Route:
-      type: object
-      properties:
-        route_id:
-          type:
-          - string
-          - 'null'
-        agency_id:
-          type: integer
-          format: int32
-        route_label:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Agency:
-      type: object
-      properties:
-        agency_id:
-          type: integer
-          format: int32
-        agency_name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     Departure:
       type: object
       properties:
@@ -476,3 +425,54 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    Agency:
+      type: object
+      properties:
+        agency_id:
+          type: integer
+          format: int32
+        agency_name:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Route:
+      type: object
+      properties:
+        route_id:
+          type:
+          - string
+          - 'null'
+        agency_id:
+          type: integer
+          format: int32
+        route_label:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}

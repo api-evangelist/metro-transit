@@ -254,21 +254,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Point:
-      type: object
-      properties:
-        x:
-          type: number
-          format: double
-        y:
-          type: number
-          format: double
-      additionalProperties: false
-    NearestparkandrideInput:
+    ServicenearbyInput:
       type: object
       properties:
         location:
           $ref: '#/components/schemas/PlannerLocation'
+        walkdist:
+          type: number
+          format: double
+        accessible:
+          type: boolean
       additionalProperties: false
     FindAddressResponse:
       type: object
@@ -287,6 +282,31 @@ components:
         y:
           type: number
           format: double
+      additionalProperties: false
+    Point:
+      type: object
+      properties:
+        x:
+          type: number
+          format: double
+        y:
+          type: number
+          format: double
+      additionalProperties: false
+    Suggestion:
+      type: object
+      properties:
+        text:
+          type:
+          - string
+          - 'null'
+        magic_key:
+          type:
+          - string
+          - 'null'
+        geolocator:
+          type: integer
+          format: int32
       additionalProperties: false
     PlantripInput:
       type: object
@@ -316,16 +336,11 @@ components:
           type: string
           format: date-time
       additionalProperties: false
-    ServicenearbyInput:
+    NearestparkandrideInput:
       type: object
       properties:
         location:
           $ref: '#/components/schemas/PlannerLocation'
-        walkdist:
-          type: number
-          format: double
-        accessible:
-          type: boolean
       additionalProperties: false
     ProblemDetails:
       type: object
@@ -352,20 +367,18 @@ components:
           - string
           - 'null'
       additionalProperties: {}
-    Suggestion:
+    NearestlandmarkInput:
       type: object
       properties:
-        text:
-          type:
-          - string
-          - 'null'
-        magic_key:
-          type:
-          - string
-          - 'null'
-        geolocator:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+        maxanswers:
           type: integer
           format: int32
+        category:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     PlannerLocation:
       type: object
@@ -393,17 +406,4 @@ components:
           - 'null'
         noduplicates:
           type: boolean
-      additionalProperties: false
-    NearestlandmarkInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-        maxanswers:
-          type: integer
-          format: int32
-        category:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
