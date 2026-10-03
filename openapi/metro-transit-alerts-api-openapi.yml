@@ -93,42 +93,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    LocalizedImage:
-      type: object
-      properties:
-        url:
-          type:
-          - string
-          - 'null'
-        media_type:
-          type:
-          - string
-          - 'null'
-        language:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    TranslatedString:
-      type: object
-      properties:
-        translation:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Translation'
-      additionalProperties: false
-    Image:
-      type: object
-      properties:
-        localized_image:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LocalizedImage'
-      additionalProperties: false
     TripDescriptor:
       type: object
       properties:
@@ -148,40 +112,17 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    EntitySelector:
+    TimeRange:
       type: object
       properties:
-        agency_id:
-          type:
-          - string
-          - 'null'
-        route_id:
-          type:
-          - string
-          - 'null'
-        route_type:
+        start:
           type: integer
-          format: int32
-        direction_id:
+          format: int64
+        end:
           type:
           - integer
           - 'null'
-          format: int32
-        direction_text:
-          type:
-          - string
-          - 'null'
-        trip:
-          $ref: '#/components/schemas/TripDescriptor'
-        stop_id:
-          type:
-          - string
-          - 'null'
-        route_label:
-          type:
-          - string
-          - 'null'
-          readOnly: true
+          format: int64
       additionalProperties: false
     IAlert:
       type: object
@@ -243,10 +184,49 @@ components:
         image:
           $ref: '#/components/schemas/Image'
       additionalProperties: false
-    Translation:
+    EntitySelector:
       type: object
       properties:
-        text:
+        agency_id:
+          type:
+          - string
+          - 'null'
+        route_id:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type: integer
+          format: int32
+        direction_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        direction_text:
+          type:
+          - string
+          - 'null'
+        trip:
+          $ref: '#/components/schemas/TripDescriptor'
+        stop_id:
+          type:
+          - string
+          - 'null'
+        route_label:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+      additionalProperties: false
+    LocalizedImage:
+      type: object
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        media_type:
           type:
           - string
           - 'null'
@@ -255,17 +235,25 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    TimeRange:
+    Image:
       type: object
       properties:
-        start:
-          type: integer
-          format: int64
-        end:
+        localized_image:
           type:
-          - integer
+          - array
           - 'null'
-          format: int64
+          items:
+            $ref: '#/components/schemas/LocalizedImage'
+      additionalProperties: false
+    TranslatedString:
+      type: object
+      properties:
+        translation:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Translation'
       additionalProperties: false
     ProblemDetails:
       type: object
@@ -292,3 +280,15 @@ components:
           - string
           - 'null'
       additionalProperties: {}
+    Translation:
+      type: object
+      properties:
+        text:
+          type:
+          - string
+          - 'null'
+        language:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false

@@ -254,6 +254,27 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    NearestparkandrideInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+      additionalProperties: false
+    Suggestion:
+      type: object
+      properties:
+        text:
+          type:
+          - string
+          - 'null'
+        magic_key:
+          type:
+          - string
+          - 'null'
+        geolocator:
+          type: integer
+          format: int32
+      additionalProperties: false
     ServicenearbyInput:
       type: object
       properties:
@@ -264,6 +285,29 @@ components:
           format: double
         accessible:
           type: boolean
+      additionalProperties: false
+    Point:
+      type: object
+      properties:
+        x:
+          type: number
+          format: double
+        y:
+          type: number
+          format: double
+      additionalProperties: false
+    NearestlandmarkInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+        maxanswers:
+          type: integer
+          format: int32
+        category:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     FindAddressResponse:
       type: object
@@ -282,103 +326,6 @@ components:
         y:
           type: number
           format: double
-      additionalProperties: false
-    Point:
-      type: object
-      properties:
-        x:
-          type: number
-          format: double
-        y:
-          type: number
-          format: double
-      additionalProperties: false
-    Suggestion:
-      type: object
-      properties:
-        text:
-          type:
-          - string
-          - 'null'
-        magic_key:
-          type:
-          - string
-          - 'null'
-        geolocator:
-          type: integer
-          format: int32
-      additionalProperties: false
-    PlantripInput:
-      type: object
-      properties:
-        origin:
-          $ref: '#/components/schemas/PlannerLocation'
-        destination:
-          $ref: '#/components/schemas/PlannerLocation'
-        arrdep:
-          type:
-          - string
-          - 'null'
-        walkdist:
-          type: number
-          format: double
-        minimize:
-          type:
-          - string
-          - 'null'
-        accessible:
-          type: boolean
-        xmode:
-          type:
-          - string
-          - 'null'
-        datetime:
-          type: string
-          format: date-time
-      additionalProperties: false
-    NearestparkandrideInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
-    NearestlandmarkInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-        maxanswers:
-          type: integer
-          format: int32
-        category:
-          type:
-          - string
-          - 'null'
       additionalProperties: false
     PlannerLocation:
       type: object
@@ -406,4 +353,57 @@ components:
           - 'null'
         noduplicates:
           type: boolean
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    PlantripInput:
+      type: object
+      properties:
+        origin:
+          $ref: '#/components/schemas/PlannerLocation'
+        destination:
+          $ref: '#/components/schemas/PlannerLocation'
+        arrdep:
+          type:
+          - string
+          - 'null'
+        walkdist:
+          type: number
+          format: double
+        minimize:
+          type:
+          - string
+          - 'null'
+        accessible:
+          type: boolean
+        xmode:
+          type:
+          - string
+          - 'null'
+        datetime:
+          type: string
+          format: date-time
       additionalProperties: false
