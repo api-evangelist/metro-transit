@@ -112,6 +112,76 @@ components:
           - string
           - 'null'
       additionalProperties: false
+    EntitySelector:
+      type: object
+      properties:
+        agency_id:
+          type:
+          - string
+          - 'null'
+        route_id:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type: integer
+          format: int32
+        direction_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        direction_text:
+          type:
+          - string
+          - 'null'
+        trip:
+          $ref: '#/components/schemas/TripDescriptor'
+        stop_id:
+          type:
+          - string
+          - 'null'
+        route_label:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+      additionalProperties: false
+    Image:
+      type: object
+      properties:
+        localized_image:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LocalizedImage'
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
     TimeRange:
       type: object
       properties:
@@ -123,6 +193,22 @@ components:
           - integer
           - 'null'
           format: int64
+      additionalProperties: false
+    LocalizedImage:
+      type: object
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        media_type:
+          type:
+          - string
+          - 'null'
+        language:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     IAlert:
       type: object
@@ -184,102 +270,6 @@ components:
         image:
           $ref: '#/components/schemas/Image'
       additionalProperties: false
-    EntitySelector:
-      type: object
-      properties:
-        agency_id:
-          type:
-          - string
-          - 'null'
-        route_id:
-          type:
-          - string
-          - 'null'
-        route_type:
-          type: integer
-          format: int32
-        direction_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        direction_text:
-          type:
-          - string
-          - 'null'
-        trip:
-          $ref: '#/components/schemas/TripDescriptor'
-        stop_id:
-          type:
-          - string
-          - 'null'
-        route_label:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-      additionalProperties: false
-    LocalizedImage:
-      type: object
-      properties:
-        url:
-          type:
-          - string
-          - 'null'
-        media_type:
-          type:
-          - string
-          - 'null'
-        language:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Image:
-      type: object
-      properties:
-        localized_image:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LocalizedImage'
-      additionalProperties: false
-    TranslatedString:
-      type: object
-      properties:
-        translation:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Translation'
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
     Translation:
       type: object
       properties:
@@ -291,4 +281,14 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    TranslatedString:
+      type: object
+      properties:
+        translation:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Translation'
       additionalProperties: false

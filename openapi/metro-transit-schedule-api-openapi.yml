@@ -181,26 +181,181 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ScheduleType:
+    StopBoardExit:
       type: object
       properties:
-        schedule_type_name:
+        route_label:
           type:
           - string
           - 'null'
-        view_order:
-          type: integer
-          format: int32
-        booking:
+        trip_comment:
           type:
           - string
           - 'null'
-        timetables:
+          readOnly: true
+        board_time:
+          type:
+          - string
+          - 'null'
+        board_comment:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        exit_time:
+          type:
+          - string
+          - 'null'
+        exit_comment:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+      additionalProperties: false
+    Trip:
+      type: object
+      properties:
+        route_label:
+          type:
+          - string
+          - 'null'
+        comment_tag:
+          type:
+          - string
+          - 'null'
+        stop_times:
           type:
           - array
           - 'null'
           items:
-            $ref: '#/components/schemas/TimetableDetail'
+            $ref: '#/components/schemas/StopTime'
+      additionalProperties: false
+    StopTime:
+      type: object
+      properties:
+        departure_time:
+          type:
+          - string
+          - 'null'
+        place_sequence:
+          type: integer
+          format: int32
+        comment_tag:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Timepoint:
+      type: object
+      properties:
+        timepoint_label:
+          type:
+          - string
+          - 'null'
+        place_sequence:
+          type: integer
+          format: int32
+        map_reference:
+          type: integer
+          format: int32
+        downtown_zone:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    TimetableDetail:
+      type: object
+      properties:
+        schedule_number:
+          type: integer
+          format: int32
+        direction:
+          type:
+          - string
+          - 'null'
+        direction_id:
+          type: integer
+          format: int32
+      additionalProperties: false
+    StopSchedule:
+      type: object
+      properties:
+        departures:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/StopBoardExit'
+        footnotes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Footnote'
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    StopListItem:
+      type: object
+      properties:
+        stop_id:
+          type: integer
+          format: int32
+        stop_name:
+          type:
+          - string
+          - 'null'
+        timepoint:
+          type: boolean
+      additionalProperties: false
+    Timetable:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        timepoints:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Timepoint'
+        trips:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Trip'
+        footnotes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Footnote'
       additionalProperties: false
     RouteDetails:
       type: object
@@ -267,84 +422,6 @@ components:
           items:
             $ref: '#/components/schemas/ScheduleType'
       additionalProperties: false
-    StopBoardExit:
-      type: object
-      properties:
-        route_label:
-          type:
-          - string
-          - 'null'
-        trip_comment:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        board_time:
-          type:
-          - string
-          - 'null'
-        board_comment:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        exit_time:
-          type:
-          - string
-          - 'null'
-        exit_comment:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-      additionalProperties: false
-    Timepoint:
-      type: object
-      properties:
-        timepoint_label:
-          type:
-          - string
-          - 'null'
-        place_sequence:
-          type: integer
-          format: int32
-        map_reference:
-          type: integer
-          format: int32
-        downtown_zone:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    StopSchedule:
-      type: object
-      properties:
-        departures:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/StopBoardExit'
-        footnotes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Footnote'
-      additionalProperties: false
-    StopListItem:
-      type: object
-      properties:
-        stop_id:
-          type: integer
-          format: int32
-        stop_name:
-          type:
-          - string
-          - 'null'
-        timepoint:
-          type: boolean
-      additionalProperties: false
     RouteListItem:
       type: object
       properties:
@@ -373,104 +450,6 @@ components:
           - 'null'
           readOnly: true
       additionalProperties: false
-    TimetableDetail:
-      type: object
-      properties:
-        schedule_number:
-          type: integer
-          format: int32
-        direction:
-          type:
-          - string
-          - 'null'
-        direction_id:
-          type: integer
-          format: int32
-      additionalProperties: false
-    Trip:
-      type: object
-      properties:
-        route_label:
-          type:
-          - string
-          - 'null'
-        comment_tag:
-          type:
-          - string
-          - 'null'
-        stop_times:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/StopTime'
-      additionalProperties: false
-    StopTime:
-      type: object
-      properties:
-        departure_time:
-          type:
-          - string
-          - 'null'
-        place_sequence:
-          type: integer
-          format: int32
-        comment_tag:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    Timetable:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        timepoints:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Timepoint'
-        trips:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Trip'
-        footnotes:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Footnote'
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
     Footnote:
       type: object
       properties:
@@ -482,4 +461,25 @@ components:
           type:
           - string
           - 'null'
+      additionalProperties: false
+    ScheduleType:
+      type: object
+      properties:
+        schedule_type_name:
+          type:
+          - string
+          - 'null'
+        view_order:
+          type: integer
+          format: int32
+        booking:
+          type:
+          - string
+          - 'null'
+        timetables:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TimetableDetail'
       additionalProperties: false

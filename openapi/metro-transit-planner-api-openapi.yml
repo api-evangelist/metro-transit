@@ -254,131 +254,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NearestparkandrideInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-      additionalProperties: false
-    Suggestion:
-      type: object
-      properties:
-        text:
-          type:
-          - string
-          - 'null'
-        magic_key:
-          type:
-          - string
-          - 'null'
-        geolocator:
-          type: integer
-          format: int32
-      additionalProperties: false
-    ServicenearbyInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-        walkdist:
-          type: number
-          format: double
-        accessible:
-          type: boolean
-      additionalProperties: false
-    Point:
-      type: object
-      properties:
-        x:
-          type: number
-          format: double
-        y:
-          type: number
-          format: double
-      additionalProperties: false
-    NearestlandmarkInput:
-      type: object
-      properties:
-        location:
-          $ref: '#/components/schemas/PlannerLocation'
-        maxanswers:
-          type: integer
-          format: int32
-        category:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
-    FindAddressResponse:
-      type: object
-      properties:
-        address:
-          type:
-          - string
-          - 'null'
-        atis_id:
-          type:
-          - string
-          - 'null'
-        x:
-          type: number
-          format: double
-        y:
-          type: number
-          format: double
-      additionalProperties: false
-    PlannerLocation:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-        point:
-          $ref: '#/components/schemas/Point'
-        landmarkid:
-          type: integer
-          format: int32
-      additionalProperties: false
-    RoutelandmarksInput:
-      type: object
-      properties:
-        route:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-        noduplicates:
-          type: boolean
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        status:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        detail:
-          type:
-          - string
-          - 'null'
-        instance:
-          type:
-          - string
-          - 'null'
-      additionalProperties: {}
     PlantripInput:
       type: object
       properties:
@@ -406,4 +281,129 @@ components:
         datetime:
           type: string
           format: date-time
+      additionalProperties: false
+    NearestlandmarkInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+        maxanswers:
+          type: integer
+          format: int32
+        category:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Point:
+      type: object
+      properties:
+        x:
+          type: number
+          format: double
+        y:
+          type: number
+          format: double
+      additionalProperties: false
+    ServicenearbyInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+        walkdist:
+          type: number
+          format: double
+        accessible:
+          type: boolean
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        status:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        detail:
+          type:
+          - string
+          - 'null'
+        instance:
+          type:
+          - string
+          - 'null'
+      additionalProperties: {}
+    PlannerLocation:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+        point:
+          $ref: '#/components/schemas/Point'
+        landmarkid:
+          type: integer
+          format: int32
+      additionalProperties: false
+    NearestparkandrideInput:
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/PlannerLocation'
+      additionalProperties: false
+    Suggestion:
+      type: object
+      properties:
+        text:
+          type:
+          - string
+          - 'null'
+        magic_key:
+          type:
+          - string
+          - 'null'
+        geolocator:
+          type: integer
+          format: int32
+      additionalProperties: false
+    RoutelandmarksInput:
+      type: object
+      properties:
+        route:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        noduplicates:
+          type: boolean
+      additionalProperties: false
+    FindAddressResponse:
+      type: object
+      properties:
+        address:
+          type:
+          - string
+          - 'null'
+        atis_id:
+          type:
+          - string
+          - 'null'
+        x:
+          type: number
+          format: double
+        y:
+          type: number
+          format: double
       additionalProperties: false
