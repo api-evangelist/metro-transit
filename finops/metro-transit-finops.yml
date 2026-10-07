@@ -142,10 +142,8 @@ apis:
 unitEconomics:
   - name: Internal Cost per Public-Data Poll
     metric: consumer_infra_cost / realtime_polls
-    target: minimize via shared edge cache
   - name: Cache Hit Rate
     metric: cache_hits / (cache_hits + origin_polls)
-    target: '> 0.95'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
