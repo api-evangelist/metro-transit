@@ -258,68 +258,53 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Place:
+    Agency:
       type: object
       properties:
-        place_code:
-          type:
-          - string
-          - 'null'
-        description:
+        agency_id:
+          type: integer
+          format: int32
+        agency_name:
           type:
           - string
           - 'null'
       additionalProperties: false
-    Vehicle:
+    Route:
       type: object
       properties:
-        trip_id:
-          type:
-          - string
-          - 'null'
-        direction_id:
-          type: integer
-          format: int32
-        direction:
-          type:
-          - string
-          - 'null'
-        location_time:
-          type: integer
-          format: int64
         route_id:
           type:
           - string
           - 'null'
-        terminal:
+        agency_id:
+          type: integer
+          format: int32
+        route_label:
           type:
           - string
           - 'null'
-        latitude:
-          type: number
-          format: float
-        longitude:
-          type: number
-          format: float
-        bearing:
-          type: number
-          format: float
-        odometer:
-          type: number
-          format: double
-        speed:
-          type: number
-          format: float
       additionalProperties: false
-    AlertMessage:
+    NexTripResult:
       type: object
       properties:
-        stop_closed:
-          type: boolean
-        alert_text:
+        stops:
           type:
-          - string
+          - array
           - 'null'
+          items:
+            $ref: '#/components/schemas/Stop'
+        alerts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AlertMessage'
+        departures:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/Departure'
       additionalProperties: false
     Departure:
       type: object
@@ -375,17 +360,6 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    Agency:
-      type: object
-      properties:
-        agency_id:
-          type: integer
-          format: int32
-        agency_name:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     Direction:
       type: object
       properties:
@@ -397,20 +371,46 @@ components:
           - string
           - 'null'
       additionalProperties: false
-    Route:
+    Vehicle:
       type: object
       properties:
+        trip_id:
+          type:
+          - string
+          - 'null'
+        direction_id:
+          type: integer
+          format: int32
+        direction:
+          type:
+          - string
+          - 'null'
+        location_time:
+          type: integer
+          format: int64
         route_id:
           type:
           - string
           - 'null'
-        agency_id:
-          type: integer
-          format: int32
-        route_label:
+        terminal:
           type:
           - string
           - 'null'
+        latitude:
+          type: number
+          format: float
+        longitude:
+          type: number
+          format: float
+        bearing:
+          type: number
+          format: float
+        odometer:
+          type: number
+          format: double
+        speed:
+          type: number
+          format: float
       additionalProperties: false
     ProblemDetails:
       type: object
@@ -437,28 +437,6 @@ components:
           - string
           - 'null'
       additionalProperties: {}
-    NexTripResult:
-      type: object
-      properties:
-        stops:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Stop'
-        alerts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/AlertMessage'
-        departures:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/Departure'
-      additionalProperties: false
     Stop:
       type: object
       properties:
@@ -471,6 +449,28 @@ components:
         longitude:
           type: number
           format: double
+        description:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    AlertMessage:
+      type: object
+      properties:
+        stop_closed:
+          type: boolean
+        alert_text:
+          type:
+          - string
+          - 'null'
+      additionalProperties: false
+    Place:
+      type: object
+      properties:
+        place_code:
+          type:
+          - string
+          - 'null'
         description:
           type:
           - string

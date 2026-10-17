@@ -93,59 +93,27 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TripDescriptor:
+    TranslatedString:
       type: object
       properties:
-        trip_id:
+        translation:
           type:
-          - string
+          - array
           - 'null'
-        route_id:
-          type:
-          - string
-          - 'null'
-        direction_id:
-          type: integer
-          format: int32
-        direction_text:
-          type:
-          - string
-          - 'null'
+          items:
+            $ref: '#/components/schemas/Translation'
       additionalProperties: false
-    EntitySelector:
+    Translation:
       type: object
       properties:
-        agency_id:
+        text:
           type:
           - string
           - 'null'
-        route_id:
+        language:
           type:
           - string
           - 'null'
-        route_type:
-          type: integer
-          format: int32
-        direction_id:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        direction_text:
-          type:
-          - string
-          - 'null'
-        trip:
-          $ref: '#/components/schemas/TripDescriptor'
-        stop_id:
-          type:
-          - string
-          - 'null'
-        route_label:
-          type:
-          - string
-          - 'null'
-          readOnly: true
       additionalProperties: false
     Image:
       type: object
@@ -156,6 +124,22 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/LocalizedImage'
+      additionalProperties: false
+    LocalizedImage:
+      type: object
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        media_type:
+          type:
+          - string
+          - 'null'
+        language:
+          type:
+          - string
+          - 'null'
       additionalProperties: false
     ProblemDetails:
       type: object
@@ -182,34 +166,6 @@ components:
           - string
           - 'null'
       additionalProperties: {}
-    TimeRange:
-      type: object
-      properties:
-        start:
-          type: integer
-          format: int64
-        end:
-          type:
-          - integer
-          - 'null'
-          format: int64
-      additionalProperties: false
-    LocalizedImage:
-      type: object
-      properties:
-        url:
-          type:
-          - string
-          - 'null'
-        media_type:
-          type:
-          - string
-          - 'null'
-        language:
-          type:
-          - string
-          - 'null'
-      additionalProperties: false
     IAlert:
       type: object
       properties:
@@ -270,25 +226,69 @@ components:
         image:
           $ref: '#/components/schemas/Image'
       additionalProperties: false
-    Translation:
+    TripDescriptor:
       type: object
       properties:
-        text:
+        trip_id:
           type:
           - string
           - 'null'
-        language:
+        route_id:
+          type:
+          - string
+          - 'null'
+        direction_id:
+          type: integer
+          format: int32
+        direction_text:
           type:
           - string
           - 'null'
       additionalProperties: false
-    TranslatedString:
+    TimeRange:
       type: object
       properties:
-        translation:
+        start:
+          type: integer
+          format: int64
+        end:
           type:
-          - array
+          - integer
           - 'null'
-          items:
-            $ref: '#/components/schemas/Translation'
+          format: int64
+      additionalProperties: false
+    EntitySelector:
+      type: object
+      properties:
+        agency_id:
+          type:
+          - string
+          - 'null'
+        route_id:
+          type:
+          - string
+          - 'null'
+        route_type:
+          type: integer
+          format: int32
+        direction_id:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        direction_text:
+          type:
+          - string
+          - 'null'
+        trip:
+          $ref: '#/components/schemas/TripDescriptor'
+        stop_id:
+          type:
+          - string
+          - 'null'
+        route_label:
+          type:
+          - string
+          - 'null'
+          readOnly: true
       additionalProperties: false
