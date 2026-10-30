@@ -1,4 +1,4 @@
-# Metro Transit (metro-transit)
+# Metro Transit
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,141 +66,125 @@
 
 Metro Transit provides real-time departure information, service alerts, trip planning, and schedule data APIs for the Minneapolis-Saint Paul metropolitan transit system. The APIs support creating transit departure displays and accessing real-time bus and train arrival data for the Twin Cities.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/apis.yml)
+**Areas:** Minneapolis · Minnesota · Public Transportation · Real-Time · Transit
 
-## Scope
+## Metro Transit on APIs.io
 
-- **Type:** Index
+Everything profiled for Metro Transit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/metro-transit/](https://apis.io/providers/metro-transit/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Minneapolis
-- Minnesota
-- Public Transportation
-- Real-Time
-- Transit
+- [Metro Transit Alerts API](https://apis.io/apis/metro-transit/metro-transit-alerts-api/) — The Alerts API from Metro Transit — 3 operation(s) for alerts.
+- [Metro Transit NexTrip API](https://apis.io/apis/metro-transit/metro-transit-nextrip-api/) — The NexTrip API from Metro Transit — 8 operation(s) for nextrip.
+- [Metro Transit Planner API](https://apis.io/apis/metro-transit/metro-transit-planner-api/) — The Planner API from Metro Transit — 8 operation(s) for planner.
+- [Metro Transit Schedule API](https://apis.io/apis/metro-transit/metro-transit-schedule-api/) — The Schedule API from Metro Transit — 5 operation(s) for schedule.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-05-02
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Metro Transit NexTrip API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The NexTrip API provides real-time departure information for creating transit departure displays. It offers endpoints for routes, stops, and real-time departure data for the Twin Cities metro area.
+- [Metro Transit Agentic Access](https://apis.io/agentic-access/metro-transit/metro-transit-agentic-access/)
 
-- **Human URL:** [https://svc.metrotransit.org/swagger/index.html](https://svc.metrotransit.org/swagger/index.html)
-- **Base URL:** `https://svc.metrotransit.org/nextripv2`
+#### Collections (8)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Departures
-- Real-Time
-- Transit
+- [Service Alerts API](https://apis.io/collections/metro-transit/open-metro-transit-alerts/)
+- [Service Alerts API](https://apis.io/collections/metro-transit/open-metro-transit-alerts-api/)
+- [NexTrip API](https://apis.io/collections/metro-transit/open-metro-transit-nextrip/)
+- [Service Alerts NexTrip API](https://apis.io/collections/metro-transit/open-metro-transit-nextrip-api/)
+- [Service Alerts Planner API](https://apis.io/collections/metro-transit/open-metro-transit-planner-api/)
+- [Schedule API](https://apis.io/collections/metro-transit/open-metro-transit-schedule/)
+- [Service Alerts Schedule API](https://apis.io/collections/metro-transit/open-metro-transit-schedule-api/)
+- [Trip Planner API](https://apis.io/collections/metro-transit/open-metro-transit-tripplanner/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://svc.metrotransit.org/swagger/index.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/openapi/metro-transit-nextrip-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/metro-transit-alerts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-alerts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-nextrip.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-nextrip.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-schedule.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-schedule.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-tripplanner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-tripplanner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Metro Transit Service Alerts API
+- [Metro Transit Domain Security](https://apis.io/security/metro-transit/metro-transit-domain-security/)
+- [Metro Transit Vulnerability Disclosure](https://apis.io/security/metro-transit/metro-transit-vulnerability-disclosure/)
 
-The Service Alerts API provides current service alerts for routes and stops across the Twin Cities Metro Transit network.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://svc.metrotransit.org/swagger/index.html](https://svc.metrotransit.org/swagger/index.html)
-- **Base URL:** `https://svc.metrotransit.org/alerts`
+Published plans, tiers and prices.
 
-#### Tags
+- [Metro Transit Plans Pricing](https://apis.io/plans/metro-transit/metro-transit-plans-pricing/)
 
-- Alerts
-- Real-Time
-- Transit
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://svc.metrotransit.org/swagger/index.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/openapi/metro-transit-alerts-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/metro-transit-alerts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-alerts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-nextrip.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-nextrip.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-schedule.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-schedule.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-tripplanner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-tripplanner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Metro Transit Rate Limits](https://apis.io/rate-limits/metro-transit/metro-transit-rate-limits/)
 
-### Metro Transit Trip Planner API
+#### FinOps (1)
 
-The Trip Planner API supports building itineraries and routing trips across the Twin Cities Metro Transit system using stops, places, and schedules.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://svc.metrotransit.org/swagger/index.html](https://svc.metrotransit.org/swagger/index.html)
-- **Base URL:** `https://svc.metrotransit.org/tripplanner`
+- [Metro Transit Finops](https://apis.io/finops/metro-transit/metro-transit-finops/)
 
-#### Tags
+## Where to find this API
 
-- Trip Planner
-- Routing
-- Transit
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://svc.metrotransit.org/swagger/index.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/openapi/metro-transit-tripplanner-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/metro-transit-alerts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-alerts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-nextrip.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-nextrip.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-schedule.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-schedule.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-tripplanner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-tripplanner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Metro Transit Schedule API
-
-The Schedule API provides published timetable data including routes, directions, stops, and schedule details for the Twin Cities Metro Transit system.
-
-- **Human URL:** [https://svc.metrotransit.org/swagger/index.html](https://svc.metrotransit.org/swagger/index.html)
-- **Base URL:** `https://svc.metrotransit.org/schedule`
-
-#### Tags
-
-- Schedule
-- Timetable
-- Transit
-
-#### Properties
-
-- [Documentation](https://svc.metrotransit.org/swagger/index.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/metro-transit/refs/heads/main/openapi/metro-transit-schedule-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/metro-transit-alerts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-alerts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-nextrip.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-nextrip.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-schedule.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-schedule.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/metro-transit-tripplanner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/metro-transit-tripplanner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/metrotransit)
-- [LinkedIn](https://www.linkedin.com/company/metro-transit)
-- [Portal](https://www.metrotransit.org/developer-resources)
-- [Documentation](https://svc.metrotransit.org/swagger/index.html)
 - [Website](https://www.metrotransit.org/)
-- [Integrations](https://www.metrotransit.org/integrations)
+- [Documentation](https://svc.metrotransit.org/swagger/index.html)
+- [Blog](https://www.metrotransit.org/news/)
+- [GitHub](https://github.com/metrotransit)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 21.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 36.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 5.3 |
+
+**Agent readiness 21.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/metro-transit/](https://apis.io/providers/metro-transit/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Metro Transit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/metro-transit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
